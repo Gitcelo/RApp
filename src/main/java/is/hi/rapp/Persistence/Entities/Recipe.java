@@ -13,4 +13,9 @@ public class Recipe {
     public Recipe{
 
     }
+    public Recipe(String title, String description, List<String> ingredients) {
+        this.title = title;
+        this.description = description;
+        this.ingredients = ingredients;
+    }
 }

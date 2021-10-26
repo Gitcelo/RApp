@@ -10,4 +10,14 @@ public class Review {
     public Review{
 
     }
+    public Review(String description, boolean liked) {
+        this.description = description;
+        this.liked = liked;
+
+    }
+
+
+
+
+
 }
