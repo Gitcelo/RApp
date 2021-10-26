@@ -10,7 +10,7 @@ public class Recipe {
     private List<Review> reviews;
     private User user;
 
-    public Recipe{
+    public Recipe() {
 
     }
     public Recipe(String title, String description, List<String> ingredients) {

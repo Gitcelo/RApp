@@ -7,7 +7,7 @@ public class Review {
     private User user;
     private Recipe recipe;
 
-    public Review{
+    public Review() {
 
     }
     public Review(String description, boolean liked) {
@@ -15,6 +15,8 @@ public class Review {
         this.liked = liked;
 
     }
+
+
 
 
 
