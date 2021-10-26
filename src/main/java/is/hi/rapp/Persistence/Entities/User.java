@@ -6,6 +6,7 @@ public class User {
     private long ID;
     private String userName;
     private String email;
+    private String password;
     private List<Review> reviews;
     private List<Recipe> recipes;
     private List<String> following;
@@ -39,10 +40,6 @@ public class User {
         return password;
     }
 
-    public boolean isPublished() {
-        return published;
-    }
-
     public List<Review> getReviews() {
         return reviews;
     }
@@ -69,10 +66,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setPublished(boolean published) {
-        this.published = published;
     }
 
     public void setReviews(List<Review> reviews) {
