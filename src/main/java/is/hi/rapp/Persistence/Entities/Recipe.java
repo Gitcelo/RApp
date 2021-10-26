@@ -6,7 +6,7 @@ public class Recipe {
     private String title;
     private String description;
     private List<String> ingredients;
-    private Boolean published;
+    private boolean published;
     private List<Review> reviews;
     private User user;
 
