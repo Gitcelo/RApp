@@ -14,13 +14,13 @@ import java.util.List;
 public class UserCreateController {
     private UserService userService;
 
-    @RequestMapping("/user")
+    @RequestMapping("/CreateUser")
         public String userCreatePage(Model model) {
         // Call a method in a Service Class
         List<User> allUsers = userService.findAll();
         // Add some data to the model
         model.addAttribute("users", allUsers);
-        return "user";
+        return "CreateUser";
     }
 
     @RequestMapping(value="/user/delete/{id}", method= RequestMethod.GET)
