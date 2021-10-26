@@ -9,4 +9,8 @@ public class Recipe {
     private Boolean published;
     private List<Review> reviews;
     private User user;
+
+    public Recipe{
+
+    }
 }
