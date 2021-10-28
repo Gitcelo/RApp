@@ -1,4 +1,4 @@
-package is.hi.rapp.Controllers.userControllers;
+package is.hi.rapp.Controllers.UserControllers;
 
 import is.hi.rapp.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
