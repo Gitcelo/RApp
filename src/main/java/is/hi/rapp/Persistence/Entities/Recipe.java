@@ -1,13 +1,23 @@
 package is.hi.rapp.Persistence.Entities;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "recipes")
 public class Recipe {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
     private List<String> ingredients;
     private boolean published;
-    private List<Review> reviews;
+
+    @OneToMany(mappedBy = "recipe",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     public Recipe() {

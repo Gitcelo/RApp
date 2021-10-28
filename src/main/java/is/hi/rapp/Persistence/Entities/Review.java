@@ -1,10 +1,20 @@
 package is.hi.rapp.Persistence.Entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "reviews")
 public class Review {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String description;
     private boolean liked;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Recipe recipe;
 
     public Review() {
