@@ -1,12 +1,11 @@
-package is.hi.rapp.Persistence.Repositories;
+package is.hi.rapp.Services;
 
 import is.hi.rapp.Persistence.Entities.Review;
 import is.hi.rapp.Persistence.Entities.User;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ReviewRepository extends JpaRepository<Review, Long> {
+public interface ReviewService {
     Review save(Review review);
     void delete(Review review); //Breyta svo í að skila String
     List<Review> findAll();

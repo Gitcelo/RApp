@@ -34,7 +34,7 @@ public class RecipeServiceImplementation implements RecipeService {
 
     @Override
     public Recipe findByID(long id) {
-        return recipeRepository.findByID(id));
+        return recipeRepository.findByID(id);
     }
 
     @Override

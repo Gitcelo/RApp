@@ -5,13 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface UserRepository extends JpaRepository {
+public interface UserRepository extends JpaRepository<User, Long> {
     User save(User user);
-    String delete(User user); //We return a string instead of nothing to be more RESTful
-    @SQL
-    String changePassword(User user, String password, String newPassword);
-
+    void delete(User user); //We return a string instead of nothing to be more RESTful
     List<User> findAll();
-    List<User> findByTitle(String title);
+    List<User> findByUserName(String userName);
     User findByID(long id);
 }

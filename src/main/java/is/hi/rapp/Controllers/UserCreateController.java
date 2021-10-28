@@ -14,7 +14,7 @@ import java.util.List;
 public class UserCreateController {
     private UserService userService;
 
-    @RequestMapping("/CreateUser")
+    @RequestMapping("/addUser")
         public String userCreatePage(Model model) {
         // Call a method in a Service Class
         //List<User> allUsers = userService.findAll();
