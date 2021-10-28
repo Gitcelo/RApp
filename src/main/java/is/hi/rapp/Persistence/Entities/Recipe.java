@@ -11,6 +11,7 @@ public class Recipe {
     private long ID;
     private String title;
     private String description;
+    @ElementCollection
     private List<String> ingredients;
     private boolean published;
 
@@ -30,11 +31,11 @@ public class Recipe {
     }
 
     public Long getId() {
-        return id;
+        return ID;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.ID = id;
     }
 
     public String getTitle() {

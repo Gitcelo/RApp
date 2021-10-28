@@ -12,4 +12,5 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
     List<Review> findAll();
     List<Review> findByUser(User user);
     Review findByID(long id);
+    // Setja svo inn restina af aðferðunum
 }

@@ -42,4 +42,6 @@ public class ReviewServiceImplementation implements ReviewService {
     public Review findByID(long id) {
         return reviewRepository.findByID(id);
     }
+
+    //Setja svo inn restina af aðferðunum
 }

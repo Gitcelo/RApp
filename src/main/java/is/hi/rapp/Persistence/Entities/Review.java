@@ -27,7 +27,7 @@ public class Review {
     }
 
     public long getId() {
-        return id;
+        return ID;
     }
 
     public boolean isLiked() {
@@ -49,7 +49,7 @@ public class Review {
 
 
     public void setId(long id) {
-        this.id = id;
+        this.ID = id;
     }
 
     public void setDescription(String description) {
