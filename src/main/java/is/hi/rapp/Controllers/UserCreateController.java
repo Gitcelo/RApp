@@ -17,7 +17,7 @@ public class UserCreateController {
     @RequestMapping("/CreateUser")
         public String userCreatePage(Model model) {
         // Call a method in a Service Class
-        List<User> allUsers = userService.findAll();
+        //List<User> allUsers = userService.findAll();
         // Add some data to the model
         model.addAttribute("users", allUsers);
         return "CreateUser";

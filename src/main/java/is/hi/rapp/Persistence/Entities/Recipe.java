@@ -8,7 +8,7 @@ import java.util.List;
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long ID;
     private String title;
     private String description;
     private List<String> ingredients;

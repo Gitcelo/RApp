@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long ID;
     private String description;
     private boolean liked;
 
