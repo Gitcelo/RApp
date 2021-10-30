@@ -34,6 +34,6 @@ public class UserLoginController {
             model.addAttribute("LoggedInUser", exists);
             return "LoggedInUser";
         }
-        return "redirect:/"
+        return "redirect:/";
     }
 }

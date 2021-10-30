@@ -18,7 +18,13 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public User logIn(String userName, String password) {
+    public User logIn(User user) {
+        User doesExist = findByUserName(user.getUserName());
+        if(doesExist!=null) {
+            if(doesExist.getPassword().equals(user.getPassword())) {
+                return doesExist;
+            }
+        }
         return null;
     }
 
@@ -26,7 +32,7 @@ public class UserServiceImplementation implements UserService {
         return null;
     }
 
-    public String changeEmail(User user, String newEmail, String password) {
+    public String changeEmail(User user, String newEmail) {
         Long userId = user.getID();
         return null;
     }
@@ -47,7 +53,7 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public List<User> findByUserName(String userName) {
+    public User findByUserName(String userName) {
         return userRepository.findByUserName(userName);
     }
 
