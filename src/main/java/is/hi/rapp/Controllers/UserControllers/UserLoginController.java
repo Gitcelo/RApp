@@ -22,13 +22,13 @@ public class UserLoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginGET(User user) {
-        return "login";
+        return "logIn";
     }
 
-    @RequestMapping(value = "login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String loginPOST(User user, BindingResult result, Model model, HttpSession session) {
-        if(result.hasErrors()) return "login";
-        User exists = userService.login(user);
+        if(result.hasErrors()) return "logIn";
+        User exists = userService.logIn(user);
         if(exists != null) {
             session.setAttribute("LoggedInUser", exists);
             model.addAttribute("LoggedInUser", exists);
@@ -36,4 +36,15 @@ public class UserLoginController {
         }
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/loggedin", method = RequestMethod.GET)
+    public String loggedInGET(HttpSession session, Model model) {
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        if(sessionUser != null) {
+            model.addAttribute("LoggedInUser", sessionUser);
+            return "LoggedInUser";
+        }
+        return "redirect:/";
+    }
+
 }
