@@ -18,7 +18,16 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public User login(String userName, String password) {
+    public User logIn(String userName, String password) {
+        return null;
+    }
+
+    public String changePassword(User user, String password, String newPassword) {
+        return null;
+    }
+
+    public String changeEmail(User user, String newEmail, String password) {
+        Long userId = user.getID();
         return null;
     }
 
