@@ -5,7 +5,9 @@
     <title>What user is logged in?</title>
 </head>
 <body>
-<p th:text="${LoggedInUser.userName}"></p>
+<p th:text="'User ' + ${LoggedInUser.userName} + ' is now logged in'"></p>
+
+<p><a href="/">To Front Page</a></p>
 
 </body>
 </html>

@@ -23,14 +23,13 @@ public class UserCreateController {
 
     @RequestMapping(value="/createUser", method = RequestMethod.GET)
     public String userCreateViewGet(User user) {
-
         return "createUser";
     }
 
     @RequestMapping(value="/createUser", method = RequestMethod.POST)
     public String userCreateViewPost(User user, BindingResult result, Model model) {
         if(result.hasErrors()) {
-            return "redirect:/signup";
+            return "redirect:/createUser";
         }
         User exists = userService.findByUserName(user.getUserName());
         if(exists == null) {

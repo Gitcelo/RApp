@@ -7,9 +7,17 @@
 <body>
 Frontpage
 
-<p><a href="/createUser">Sign up</a></p>
+<div th:switch="${LoggedInUser}">
+    <div th:case="Null">
+    <p><a href="/createUser">Sign up</a></p>
+    <p><a href="/login">Login</a></p>
+    </div>
+    <div th:case="*">
+        <p th:text="'User ' + ${LoggedInUser.userName} + ' is logged in'"/>
+    </div>
+</div>
 
-<p><a href="/login">Login</a></p>
+<p><a href="/createRecipe">Create Recipe</a></p>
 
 <div th:switch="${recipes}">
     <h2 th:case="Null">No recipes yet!</h2>

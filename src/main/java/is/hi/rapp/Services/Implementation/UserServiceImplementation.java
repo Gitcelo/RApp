@@ -1,5 +1,6 @@
 package is.hi.rapp.Services.Implementation;
 
+import is.hi.rapp.Persistence.Entities.Recipe;
 import is.hi.rapp.Persistence.Entities.User;
 import is.hi.rapp.Persistence.Repositories.UserRepository;
 import is.hi.rapp.Services.UserService;
@@ -38,7 +39,8 @@ public class UserServiceImplementation implements UserService {
         return null;
     }
 
-    public String changeEmail(User user, String newEmail) {
+    @Override
+    public String addRecipe(User user, List<Recipe> addedRecipe) {
         Long userId = user.getID();
         return null;
     }
