@@ -19,19 +19,20 @@ public class User {
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Recipe> recipes;
-    private List<String> following;
+
+    //private List<String> following;
 
     public User() {
 
     }
 
-    public User(String userName, String email, String password, List<Review> reviews, List<Recipe> recipes, List<String> following) {
+    public User(String userName, String email, String password) {
         this.userName = userName;
         this.email = email;
         this.password = password;
-        this.reviews = reviews;
-        this.recipes = recipes;
-        this.following = following;
+        //this.reviews = reviews;
+        //this.recipes = recipes;
+        //this.following = following;
     }
 
     public long getID() {
@@ -58,9 +59,7 @@ public class User {
         return recipes;
     }
 
-    public List<String> getFollowing() {
-        return following;
-    }
+    //public List<String> getFollowing() { return following; }
 
     public void setID(long ID) {
         this.ID = ID;
@@ -86,7 +85,5 @@ public class User {
         this.recipes = recipes;
     }
 
-    public void setFollowing(List<String> following) {
-        this.following = following;
-    }
+    //public void setFollowing(List<String> following) { this.following = following; }
 }

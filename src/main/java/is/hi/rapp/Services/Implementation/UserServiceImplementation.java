@@ -28,7 +28,13 @@ public class UserServiceImplementation implements UserService {
         return null;
     }
 
+    @Override
     public String changePassword(User user, String password, String newPassword) {
+        return null;
+    }
+
+    @Override
+    public String changeEmail(User user, String newEmail, String password) {
         return null;
     }
 
