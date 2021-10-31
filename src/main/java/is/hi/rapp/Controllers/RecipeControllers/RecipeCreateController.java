@@ -38,12 +38,20 @@ public class RecipeCreateController {
     }
 
     @RequestMapping(value="/createRecipe", method = RequestMethod.POST)
-    public String recipeCreateViewPost(Recipe recipe, User user, BindingResult result, Model model) {
+    public String recipeCreateViewPost(Recipe recipe, User user, BindingResult result, HttpSession session , Model model) {
         if(result.hasErrors()) {
             return "redirect:/createRecipe";
         }
 
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+
+        recipe.setUser(sessionUser);
+
         recipeService.save(recipe);
+
+        User test = userService.findByID(sessionUser.getID());
+
+        System.out.println(test.getRecipes());
 
         return "redirect:/";
     }

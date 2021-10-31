@@ -26,12 +26,12 @@ public class User {
 
     }
 
-    public User(String userName, String email, String password) {
+    public User(String userName, String email, String password, List<Recipe> recipes) {
         this.userName = userName;
         this.email = email;
         this.password = password;
         //this.reviews = reviews;
-        //this.recipes = recipes;
+        this.recipes = recipes;
         //this.following = following;
     }
 

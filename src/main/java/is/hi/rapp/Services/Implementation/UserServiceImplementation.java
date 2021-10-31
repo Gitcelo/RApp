@@ -39,11 +39,10 @@ public class UserServiceImplementation implements UserService {
         return null;
     }
 
-    @Override
-    public String addRecipe(User user, List<Recipe> addedRecipe) {
-        Long userId = user.getID();
-        return null;
-    }
+    //@Override
+    //public String addRecipe(Long id, List<Recipe> addedRecipe) {
+    //    return userRepository.addRecipe(id, addedRecipe);
+    //}
 
     @Override
     public User save(User user) {
