@@ -24,6 +24,7 @@ public class FrontController {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
 
         model.addAttribute("recipes", allRecipes);
+
         model.addAttribute("LoggedInUser", sessionUser);
 
         return "front";

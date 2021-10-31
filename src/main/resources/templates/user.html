@@ -8,5 +8,9 @@
 <h2>User</h2>
 <p th:text = "'Username is: ' + ${user.userName}"/>
 <p th:text = "'Email is: ' + ${user.email}"/>
+<tr th:each="recipe : ${user.recipes}">
+    <td th:text="${recipe.title}"></td>
+    <td th:text="${recipe.description}"></td>
+</tr>
 </body>
 </html>
