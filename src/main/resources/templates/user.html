@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="https://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Create User</title>
+    <title>Signup</title>
 </head>
 <body>
-Some text
+<h2>Signup for an account</h2>
+<p th:text = "'Username is: ' + ${user.userName}"/>
+<p th:text = "'Email is: ' + ${user.email}"/>
 </body>
 </html>
