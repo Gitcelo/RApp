@@ -14,6 +14,7 @@ Frontpage
     </div>
     <div th:case="*">
         <p th:text="'User ' + ${LoggedInUser.userName} + ' is logged in'"/>
+        <a href="/LoggedInUser">My profile</a>
     </div>
 </div>
 
