@@ -1,4 +1,8 @@
 # RApp
 Recipe App
 The Recipe Application is a recipe management system that will provide access to and allow users to manage recipes. The system stores recipes and makes them easily located by users. The inital release has a database with selected recipes, a search function, filters, random recipe picker and the ability for users to add and publish their own recipes. Additionally the site has a trending tab that shows users the most popular recipes. 
-## Nýjungar sem bætt var við í forritun
+
+## Breytingar á aðferðum og viðföngum þeirra
+
+Í sumum get aðferðum höfum við tekið út viðföng sem þær nota ekki. Dæmi um þetta er aðferðin
+recipeCreateViewGet sem tekur ekki lengur inn User og Recipe hluti.

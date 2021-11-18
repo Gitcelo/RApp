@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 public class RecipeCreateController {
@@ -26,14 +25,12 @@ public class RecipeCreateController {
     }
 
     @RequestMapping(value="/createRecipe", method = RequestMethod.GET)
-    public String recipeCreateViewGet(Recipe recipe, User user, HttpSession session, Model model) {
+    public String recipeCreateViewGet(HttpSession session) { // Kannski taka inn model kannski ekki
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser == null) {
             return "redirect:/login";
         }
-
-        model.addAttribute("LoggedInUser", sessionUser);
-
+        System.out.println("hl");
         return "createRecipe";
     }
 
@@ -44,9 +41,7 @@ public class RecipeCreateController {
         }
 
         User sessionUser = (User) session.getAttribute("LoggedInUser");
-
         recipe.setUser(sessionUser);
-
         recipeService.save(recipe);
 
         User test = userService.findByID(sessionUser.getID());

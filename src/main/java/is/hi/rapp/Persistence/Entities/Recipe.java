@@ -24,10 +24,12 @@ public class Recipe {
     public Recipe() {
 
     }
-    public Recipe(String title, String description, List<String> ingredients) {
+
+    public Recipe(String title, String description, List<String> ingredients, boolean published) {
         this.title = title;
         this.description = description;
         this.ingredients = ingredients;
+        this.published = published;
     }
 
     public Long getId() {
