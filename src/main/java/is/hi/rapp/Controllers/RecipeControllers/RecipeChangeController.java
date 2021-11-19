@@ -30,12 +30,19 @@ public class RecipeChangeController {
     }
 
     @RequestMapping(value="/editRecipe/{id}", method = RequestMethod.POST)
-    public String recipeChangeViewPatch(Recipe recipe, @PathVariable("id") long id, BindingResult result, HttpSession session) {
+    public String recipeChangeViewPatch(Recipe recipe, @PathVariable("id") long id, BindingResult result) {
         if(result.hasErrors()) {
             return "redirect:/editRecipe";
         }
         System.out.println(id);
         recipeService.updateRecipe(id, recipe.getTitle(), recipe.getDescription());
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/deleteRecipe/{id}", method = RequestMethod.GET)
+    public String recipeDeleteViewPatch(@PathVariable("id") long id, Model model) {
+        Recipe recipeToDelete = recipeService.findByID(id);
+        recipeService.delete(recipeToDelete);
         return "redirect:/";
     }
 

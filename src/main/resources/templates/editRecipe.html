@@ -18,5 +18,8 @@
     <br><br>
     <input type="submit" value="Submit changes"/>
 </form>
+<form action="#" th:action="@{/deleteRecipe/{id}(id=${recipe.id})}" method="get">
+    <button type="submit">Delete recipe</button>
+</form>
 </body>
 </html>
