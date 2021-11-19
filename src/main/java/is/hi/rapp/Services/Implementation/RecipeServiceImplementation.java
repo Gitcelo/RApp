@@ -43,10 +43,6 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
-<<<<<<< HEAD
-    public int updateRecipe(long Id, String title, String description, boolean published) {
-        return recipeRepository.updateRecipe(Id, title, description, published);
-=======
     public int change(long Id, String title, String description, boolean published) {
         return recipeRepository.change(Id, title, description, published);
     }
@@ -59,6 +55,5 @@ public class RecipeServiceImplementation implements RecipeService {
     @Override
     public Recipe findByRowId(long rowid) {
         return recipeRepository.findByRowId(rowid);
->>>>>>> recipes
     }
 }

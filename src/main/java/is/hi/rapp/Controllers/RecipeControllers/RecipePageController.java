@@ -1,10 +1,6 @@
 package is.hi.rapp.Controllers.RecipeControllers;
 
 import is.hi.rapp.Persistence.Entities.Recipe;
-<<<<<<< HEAD
-import is.hi.rapp.Persistence.Entities.User;
-=======
->>>>>>> recipes
 import is.hi.rapp.Services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
