@@ -29,15 +29,13 @@ public class RecipeChangeController {
         return "editRecipe";
     }
 
-    @RequestMapping(value="/editRecipe", method = RequestMethod.GET)
-    public String recipeChangeViewPost(Recipe recipe, BindingResult result, HttpSession session) {
+    @RequestMapping(value="/editRecipe/{id}", method = RequestMethod.POST)
+    public String recipeChangeViewPatch(Recipe recipe, @PathVariable("id") long id, BindingResult result, HttpSession session) {
         if(result.hasErrors()) {
             return "redirect:/editRecipe";
         }
-        User sessionUser = (User) session.getAttribute("LoggedInUser");
-        recipe.setUser(sessionUser);
-        recipeService.updateRecipe(recipe.getId(), recipe.getTitle(), recipe.getDescription());
-        System.out.println("edited");
+        System.out.println(id);
+        recipeService.updateRecipe(id, recipe.getTitle(), recipe.getDescription());
         return "redirect:/";
     }
 

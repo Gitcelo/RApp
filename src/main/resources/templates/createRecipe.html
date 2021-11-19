@@ -7,7 +7,7 @@
 <body>
 <h2>Create your recipe</h2>
 <form action="#" th:action="@{/createRecipe}" th:object="${recipe}" method="post">
-    <input type="text" value="hæ" name="title" id="title" th:field="*{title}"/>
+    <input type="text" name="title" id="title" th:field="*{title}"/>
     <input type="text" name="description" id="description" th:field="*{description}"/>
     <textarea name="ingredients" id="ingredients" rows="2" cols="50" th:field="*{ingredients}"/>
     <input type="submit" value="Create recipe"/>

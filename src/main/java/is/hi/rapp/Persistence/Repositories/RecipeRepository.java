@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
@@ -15,6 +16,7 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     List<Recipe> findByTitle(String title);
     Recipe findByID(long id);
 
+    @Transactional
     @Modifying
     @Query("UPDATE Recipe r set r.title = :title, r.description = :description where r.ID = :ID")
     int updateRecipe(@Param("ID") long ID, @Param("title") String title, @Param("description") String description);

@@ -5,6 +5,18 @@
     <title>Edit recipe</title>
 </head>
 <body>
-<p th:text = "'Title is: ' + ${recipe.title}"/>
+<h2>Edit your recipe</h2>
+<form action="#" th:action="@{/editRecipe/{id}(id=${recipe.id})}" th:object="${recipe}" method="post">
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title" th:field="*{title}"/>
+    <br><br>
+    <label for="description">Description: </label>
+    <input type="text" name="description" id="description" th:field="*{description}"/>
+    <br><br>
+    <label for="ingredients">Ingredients: </label>
+    <textarea name="ingredients" id="ingredients" rows="2" cols="50" th:field="*{ingredients}"/>
+    <br><br>
+    <input type="submit" value="Submit changes"/>
+</form>
 </body>
 </html>

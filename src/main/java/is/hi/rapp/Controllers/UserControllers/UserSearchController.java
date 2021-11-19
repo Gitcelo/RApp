@@ -2,7 +2,9 @@ package is.hi.rapp.Controllers.UserControllers;
 
 import is.hi.rapp.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class UserSearchController {
     private UserService userService;
 
