@@ -35,7 +35,7 @@ public class RecipeChangeController {
             return "redirect:/editRecipe";
         }
         System.out.println(id);
-        recipeService.updateRecipe(id, recipe.getTitle(), recipe.getDescription(), recipe.isPublished());
+        recipeService.change(id, recipe.getTitle(), recipe.getDescription(), recipe.isPublished());
         return "redirect:/";
     }
 
