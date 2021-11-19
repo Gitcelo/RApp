@@ -29,7 +29,6 @@ public class UserLoginController {
     public String loginPOST(User user, BindingResult result, Model model, HttpSession session) {
         if(result.hasErrors()) return "logIn";
         User exists = userService.logIn(user);
-        System.out.println(user==null);
         if(exists != null) {
             session.setAttribute("LoggedInUser", exists);
             model.addAttribute("LoggedInUser", exists);

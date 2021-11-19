@@ -7,8 +7,10 @@
 <body>
 <h2>Log into your account</h2>
 <form action="#" th:action="@{/login}" th:object="${user}" method="post">
-    <input type="text" name="userName" id="userName" th:field="*{userName}"/>
-    <input type="text" name="password" id="password" th:value="*{password}"/>
+    <label for="userName">Username: </label>
+    <input type="text" name="userName" id="userName" th:field="*{userName}"/><br>
+    <label for="password">Password:  </label>
+    <input type="password" name="password" id="password" th:value="*{password}"/><br>
     <input type="submit" value="Login"/>
 </form>
 
