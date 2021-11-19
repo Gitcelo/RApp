@@ -10,5 +10,6 @@ public interface RecipeService {
     List<Recipe> findAll();
     Recipe findByID(long id);
     List<Recipe> findByTitle(String title); //Tvær bækur geta haft sama titil
+    int updateRecipe(long Id, String title, String description);
     //Vantar fleiri aðferðir frá Miro
 }

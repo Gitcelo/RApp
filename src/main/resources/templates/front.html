@@ -35,6 +35,13 @@ Frontpage
             <tr th:each="recipe : ${recipes}">
                 <td th:text="${recipe.title}"></td>
                 <td th:text="${recipe.description}"></td>
+                <td>
+                    <form action="#" th:action="@{/editRecipe/{id}(id=${recipe.id})}" method="get">
+                        <button th:id="'recipe_button' + ${recipe.id}" type="submit">
+                            Edit recipe
+                        </button>
+                    </form>
+                </td>
                 <td><a th:href="@{/Recipe/{id}(id=${recipe.id})}">Go to recipe</a></td>
             </tr>
             </tbody>

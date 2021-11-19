@@ -41,4 +41,9 @@ public class RecipeServiceImplementation implements RecipeService {
     public List<Recipe> findByTitle(String title) {
         return recipeRepository.findByTitle(title);
     }
+
+    @Override
+    public int updateRecipe(long Id, String title, String description) {
+        return recipeRepository.updateRecipe(Id, title, description);
+    }
 }

@@ -22,9 +22,7 @@ public class RecipePageController {
     @RequestMapping(value = "/Recipe/{id}", method = RequestMethod.GET)
     public String userProfileViewGet(@PathVariable("id") long id, Model model) {
         Recipe recipeToView =  recipeService.findByID(id);
-
         model.addAttribute("recipe", recipeToView);
-
         return "recipe";
     }
 }
