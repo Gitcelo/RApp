@@ -16,6 +16,9 @@
     <label for="ingredients">Ingredients: </label>
     <textarea name="ingredients" id="ingredients" rows="2" cols="50" th:field="*{ingredients}"/>
     <br><br>
+    <label for="published">Make recipe public: </label>
+    <input type="checkbox" name="published" id="published" th:field="*{published}">
+    <br><br>
     <input type="submit" value="Submit changes"/>
 </form>
 <form action="#" th:action="@{/deleteRecipe/{id}(id=${recipe.id})}" method="get">

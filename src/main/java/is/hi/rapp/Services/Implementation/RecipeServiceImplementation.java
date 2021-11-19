@@ -43,7 +43,7 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
-    public int updateRecipe(long Id, String title, String description) {
-        return recipeRepository.updateRecipe(Id, title, description);
+    public int updateRecipe(long Id, String title, String description, boolean published) {
+        return recipeRepository.updateRecipe(Id, title, description, published);
     }
 }

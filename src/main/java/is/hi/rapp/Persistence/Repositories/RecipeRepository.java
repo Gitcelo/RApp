@@ -18,6 +18,7 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
     @Transactional
     @Modifying
-    @Query("UPDATE Recipe r set r.title = :title, r.description = :description where r.ID = :ID")
-    int updateRecipe(@Param("ID") long ID, @Param("title") String title, @Param("description") String description);
+    @Query("UPDATE Recipe r set r.title = :title, r.description = :description, r.published = :published where r.ID = :ID")
+    int updateRecipe(@Param("ID") long ID, @Param("title") String title, @Param("description") String description,
+                     @Param("published") boolean published);
 }
