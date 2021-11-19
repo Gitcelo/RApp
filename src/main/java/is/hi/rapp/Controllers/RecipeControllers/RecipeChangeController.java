@@ -40,7 +40,7 @@ public class RecipeChangeController {
     }
 
     @RequestMapping(value = "/deleteRecipe/{id}", method = RequestMethod.GET)
-    public String recipeDeleteViewPatch(@PathVariable("id") long id, Model model) {
+    public String recipeChangeViewDelete(@PathVariable("id") long id, Model model) {
         Recipe recipeToDelete = recipeService.findByID(id);
         recipeService.delete(recipeToDelete);
         return "redirect:/";
