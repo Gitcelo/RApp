@@ -18,6 +18,10 @@ Frontpage
     </div>
 </div>
 
+<div th:if="${LoggedInUser!=null}">
+    <p><a href="/logout">Logout</a></p>
+</div>
+
 <p><a href="/createRecipe">Create Recipe</a></p>
 
 <div th:switch="${recipes}">

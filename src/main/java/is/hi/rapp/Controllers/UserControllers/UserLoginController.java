@@ -47,4 +47,10 @@ public class UserLoginController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String userLogoutViewPost(Model model) {
+        model.addAttribute("LoggedInUser", null);
+        return "logout";
+    }
+
 }
