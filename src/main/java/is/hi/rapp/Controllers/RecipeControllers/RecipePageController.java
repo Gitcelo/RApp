@@ -29,12 +29,7 @@ public class RecipePageController {
 
     @RequestMapping(value="/randomRecipe", method = RequestMethod.GET)
     public String recipeRandomPageViewGet(Model model) {
-        System.out.println(recipeService.noOfRows());
-        long rowid = ThreadLocalRandom.current().nextLong(recipeService.noOfRows())+1;
-        System.out.println("id: " + rowid);
-        Recipe randomRecipe =  recipeService.findByRowId(rowid);
-        //System.out.println("title: "+randomRecipe.getTitle());
-        model.addAttribute("recipe", randomRecipe);
-        return "redirect:/recipe";
+        long id = recipeService.findRandomId();
+        return "redirect:/Recipe/" + id;
     }
 }

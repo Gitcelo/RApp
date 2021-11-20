@@ -23,9 +23,6 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     int change(@Param("ID") long ID, @Param("title") String title, @Param("description") String description,
                      @Param("published") boolean published);
 
-    @Query("SELECT COUNT(*) FROM Recipe")
-    long noOfRows();
-
-    @Query(value = "SELECT * FROM Recipe WHERE _rowid_ = :rowid", nativeQuery = true)
-    Recipe findByRowId(@Param("rowid") long rowid);
+    @Query(nativeQuery = true, value = "SELECT ID FROM Recipe ORDER BY RANDOM() LIMIT 1")
+    long findRandomId();
 }

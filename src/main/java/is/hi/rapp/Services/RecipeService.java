@@ -11,6 +11,5 @@ public interface RecipeService {
     Recipe findByID(long id);
     List<Recipe> findByTitle(String title); //Tvær bækur geta haft sama titil
     int change(long Id, String title, String description, boolean published);
-    long noOfRows();
-    Recipe findByRowId(long rowid);
+    long findRandomId();
 }

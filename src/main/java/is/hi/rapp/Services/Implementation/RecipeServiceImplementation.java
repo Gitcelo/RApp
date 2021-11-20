@@ -48,12 +48,7 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
-    public long noOfRows() {
-        return recipeRepository.noOfRows();
-    }
-
-    @Override
-    public Recipe findByRowId(long rowid) {
-        return recipeRepository.findByRowId(rowid);
+    public long findRandomId() {
+        return recipeRepository.findRandomId();
     }
 }
