@@ -9,3 +9,6 @@ sem tekur ekki lengur inn User og Recipe hluti.
 
 Erum ekki lengur með findRandom aðferð sem skilar Recipe í repository-inu heldur finnum við random ID fyrir uppskrift
 og köllum á /Recipe/{id} fyrir það ID til að sýna þá uppskrift.
+
+Hendi út RecipeUploadController þar sem við finnum ekki not fyrir það eins og er. Á móti setjum við nýja aðferði inní
+RecipePageController sem sýnir allar uppskriftir sem eru published.
