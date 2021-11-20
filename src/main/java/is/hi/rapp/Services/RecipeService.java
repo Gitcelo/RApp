@@ -9,7 +9,7 @@ public interface RecipeService {
     void delete(Recipe recipe); //Breyta í að skila String
     List<Recipe> findAll();
     Recipe findByID(long id);
-    List<Recipe> findByTitle(String title); //Tvær bækur geta haft sama titil
-    int change(long Id, String title, String description, boolean published);
+    List<Recipe> findByTitle(String title);
     long findRandomId();
+    List<Recipe> findPublishedRecipes();
 }

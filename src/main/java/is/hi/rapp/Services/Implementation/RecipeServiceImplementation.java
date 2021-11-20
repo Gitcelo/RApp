@@ -43,12 +43,12 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
-    public int change(long Id, String title, String description, boolean published) {
-        return recipeRepository.change(Id, title, description, published);
+    public long findRandomId() {
+        return recipeRepository.findRandomId();
     }
 
     @Override
-    public long findRandomId() {
-        return recipeRepository.findRandomId();
+    public List<Recipe> findPublishedRecipes() {
+        return recipeRepository.findPublishedRecipes();
     }
 }
