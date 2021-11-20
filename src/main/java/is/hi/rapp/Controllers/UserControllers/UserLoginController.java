@@ -47,4 +47,10 @@ public class UserLoginController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logOutPost(HttpSession session, Model model) {
+        session.removeAttribute("LoggedInUser");
+        model.addAttribute("recipes", null);
+        return "redirect:/";
+    }
 }
