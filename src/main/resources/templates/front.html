@@ -20,7 +20,6 @@ Frontpage
 
 <div th:if="${LoggedInUser!=null}">
     <p><a href="/logout">Logout</a></p>
-</div>
 
 <p><a href="/createRecipe">Create Recipe</a></p>
 
@@ -52,6 +51,7 @@ Frontpage
         </table>
         <a th:href="@{/randomRecipe}">random</a>
     </div>
+</div>
 </div>
 </body>
 </html>
