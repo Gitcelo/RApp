@@ -22,9 +22,13 @@ public class UserChangeController {
         User userToChange = userService.findByID(user.getID());
 
         if(password.equals(userToChange.getPassword())) {
-            userToChange.setPassword(newPassword);
-            //(newEmail != null)? userToChange.setEmail(newEmail) : ;
-            //Ekki gleyma að laga
+            if(newPassword != null) {
+                userToChange.setPassword(newPassword);
+            }
+
+            if(newEmail != null) {
+                userToChange.setEmail(newEmail);
+            }
         }
 
         return "LoggedInUser";

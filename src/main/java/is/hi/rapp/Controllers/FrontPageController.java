@@ -12,14 +12,14 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-public class FrontController {
+public class FrontPageController {
     private RecipeService recipeService;
 
     @Autowired
-    public FrontController(RecipeService recipeService){ this.recipeService = recipeService; }
+    public FrontPageController(RecipeService recipeService){ this.recipeService = recipeService; }
 
     @RequestMapping("/")
-    public String FrontController(HttpSession session, Model model) {
+    public String FrontPageController(HttpSession session, Model model) {
         List<Recipe> allRecipes = recipeService.findAll();
         User sessionUser = (User) session.getAttribute("LoggedInUser");
 
