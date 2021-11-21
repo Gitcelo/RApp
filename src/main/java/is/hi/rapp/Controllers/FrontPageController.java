@@ -22,9 +22,9 @@ public class FrontPageController {
     public String FrontPageController(HttpSession session, Model model) {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         List<Recipe> allRecipes = recipeService.findByUser(sessionUser);
-        model.addAttribute("recipes", allRecipes);
+        if(allRecipes.isEmpty()) model.addAttribute("recipes", null);
+        else model.addAttribute("recipes", allRecipes);
         model.addAttribute("LoggedInUser", sessionUser);
-
         return "front";
     }
 }

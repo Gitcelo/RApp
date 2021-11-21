@@ -6,7 +6,7 @@
 </head>
 <body>
     <div th:switch="${followings}">
-        <h2 th:case="Null">Not following anyone</h2>
+        <h2 th:case="null">Not following anyone</h2>
         <div th:case="*">
             <h2>Users you are following</h2>
             <table>
