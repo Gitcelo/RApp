@@ -25,8 +25,6 @@ public class RecipeCreateController {
     }
 
     @RequestMapping(value="/createRecipe", method = RequestMethod.GET)
-    // @ModelAttribute leyfir okkur að taka inn recipe án þess að þurfa að nota það.
-    // Ef við tökum þetta ekki inn þá kastar forritið villu.
     public String recipeCreateViewGet(@ModelAttribute("recipe") Recipe recipe, HttpSession session) {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser == null) {
@@ -36,15 +34,13 @@ public class RecipeCreateController {
     }
 
     @RequestMapping(value="/createRecipe", method = RequestMethod.POST)
-    public String recipeCreateViewPost(Recipe recipe, BindingResult result, HttpSession session) {
+    public String recipeCreateViewPost(@ModelAttribute("recipe") Recipe recipe, BindingResult result, HttpSession session) {
         if(result.hasErrors()) {
             return "redirect:/createRecipe";
         }
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         recipe.setUser(sessionUser);
         recipeService.save(recipe);
-        // User test = userService.findByID(sessionUser.getID());
-        // System.out.println(test.getRecipes());
         return "redirect:/";
     }
 }
