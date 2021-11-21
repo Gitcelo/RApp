@@ -21,7 +21,8 @@ Frontpage
 <div th:if="${LoggedInUser!=null}">
     <p><a href="/logout">Logout</a></p>
 
-<p><a href="/createRecipe">Create Recipe</a></p>
+    <p><a href="/createRecipe">Create Recipe</a></p>
+    <p><a href="/published">Published recipes</a></p>
 
 <div th:switch="${recipes}">
     <h2 th:case="Null">No recipes yet!</h2>

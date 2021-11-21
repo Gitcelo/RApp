@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html html xmlns:th="https://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Published recipes</title>
@@ -8,12 +8,7 @@
 <div th:switch="${recipes}">
     <h2 th:case="Null">No recipes yet!</h2>
     <div th:case="*">
-        <h2>Recipes</h2>
-        <form action="#" th:action="@{/titleSearch}" method="get">
-            <label for="title">Title: </label>
-            <input type="text" name="title" id="title"/>
-            <input type="submit" value="Search"/>
-        </form>
+        <h2>Published recipes</h2>
         <table>
             <thead>
             <tr>
@@ -25,5 +20,8 @@
             <tr th:each="recipe : ${recipes}">
                 <td th:text="${recipe.title}"></td>
                 <td th:text="${recipe.description}"></td>
+            </tr>
+            </tbody>
+        </table>
 </body>
 </html>
