@@ -20,6 +20,12 @@ public class ReviewAddController {
         this.reviewService = reviewService;
     }
 
+    @RequestMapping(value = "/Recipe", method = RequestMethod.GET)
+    public String reviewAddViewGet() {
+        return null;
+    }
+
+
     @RequestMapping(value = "/Recipe/{id}", method = RequestMethod.POST)
     public String reviewAddViewPost(@PathVariable("id") long id, HttpSession session, Model model) {
 

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,7 +22,9 @@ public class UserLoginController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginGET(User user) {
+    public String loginGET(@ModelAttribute("user") User user, HttpSession session) {
+        User loggedIn = (User) session.getAttribute("LoggedInUser");
+        if(loggedIn != null) return "redirect:/loggedin";
         return "logIn";
     }
 
@@ -50,7 +53,7 @@ public class UserLoginController {
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logOutPost(HttpSession session, Model model) {
         session.removeAttribute("LoggedInUser");
-        model.addAttribute("recipes", null);
+        model.addAttribute("LoggedInUser", null);
         return "redirect:/";
     }
 }

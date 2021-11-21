@@ -27,7 +27,7 @@ public class RecipeCreateController {
     @RequestMapping(value="/createRecipe", method = RequestMethod.GET)
     // @ModelAttribute leyfir okkur að taka inn recipe án þess að þurfa að nota það.
     // Ef við tökum þetta ekki inn þá kastar forritið villu.
-    public String recipeCreateViewGet(@ModelAttribute("recipe") Recipe recipe, HttpSession session) { // Kannski taka inn model kannski ekki
+    public String recipeCreateViewGet(@ModelAttribute("recipe") Recipe recipe, HttpSession session) {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser == null) {
             return "redirect:/login";

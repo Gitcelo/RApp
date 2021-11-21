@@ -20,11 +20,9 @@ public class FrontPageController {
 
     @RequestMapping("/")
     public String FrontPageController(HttpSession session, Model model) {
-        List<Recipe> allRecipes = recipeService.findAll();
         User sessionUser = (User) session.getAttribute("LoggedInUser");
-
+        List<Recipe> allRecipes = recipeService.findByUser(sessionUser);
         model.addAttribute("recipes", allRecipes);
-
         model.addAttribute("LoggedInUser", sessionUser);
 
         return "front";

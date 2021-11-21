@@ -1,6 +1,7 @@
 package is.hi.rapp.Persistence.Repositories;
 
 import is.hi.rapp.Persistence.Entities.Recipe;
+import is.hi.rapp.Persistence.Entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -12,6 +13,7 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     List<Recipe> findAll();
     List<Recipe> findByTitle(String title);
     Recipe findByID(long id);
+    List<Recipe> findByUser(User user);
 
     @Query(nativeQuery = true, value = "SELECT * FROM Recipe r WHERE r.published=true")
     List<Recipe> findPublishedRecipes();

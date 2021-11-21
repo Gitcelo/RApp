@@ -1,6 +1,7 @@
 package is.hi.rapp.Services.Implementation;
 
 import is.hi.rapp.Persistence.Entities.Recipe;
+import is.hi.rapp.Persistence.Entities.User;
 import is.hi.rapp.Persistence.Repositories.RecipeRepository;
 import is.hi.rapp.Services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,10 @@ public class RecipeServiceImplementation implements RecipeService {
     @Override
     public List<Recipe> findPublishedRecipes() {
         return recipeRepository.findPublishedRecipes();
+    }
+
+    @Override
+    public List<Recipe> findByUser(User user) {
+        return recipeRepository.findByUser(user);
     }
 }

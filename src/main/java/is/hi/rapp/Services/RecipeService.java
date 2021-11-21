@@ -1,6 +1,7 @@
 package is.hi.rapp.Services;
 
 import is.hi.rapp.Persistence.Entities.Recipe;
+import is.hi.rapp.Persistence.Entities.User;
 
 import java.util.List;
 
@@ -12,4 +13,5 @@ public interface RecipeService {
     List<Recipe> findByTitle(String title);
     long findRandomId();
     List<Recipe> findPublishedRecipes();
+    List<Recipe> findByUser(User user);
 }
