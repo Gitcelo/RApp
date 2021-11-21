@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:switch="${followings}">
+        <h2 th:case="Null">Not following anyone</h2>
+        <div th:case="*">
+            <h2>Users you are following</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="following: ${followings}">
+                        <td th:number="${following.followedUserId}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
