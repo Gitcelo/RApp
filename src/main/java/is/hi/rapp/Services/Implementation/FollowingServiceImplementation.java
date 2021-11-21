@@ -19,4 +19,10 @@ public class FollowingServiceImplementation implements FollowingService {
 
     @Override
     public List<Following> findByFollower(User follower) {return followingRepository.findByFollower(follower);}
+
+    @Override
+    public Following save(Following following) {return followingRepository.save(following);}
+
+    @Override
+    public void delete(Following following) {followingRepository.delete(following);}
 }

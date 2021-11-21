@@ -8,5 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface FollowingRepository extends JpaRepository<Following, Long> {
+    Following save(Following following);
+    void delete(Following following);
     List<Following> findByFollower(User follower);
 }

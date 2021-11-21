@@ -30,4 +30,18 @@ public class UserFollowingController {
         }
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/follow", method = RequestMethod.POST)
+    public String userFollowPost(Following follow, HttpSession session) {
+        User follower = (User) session.getAttribute("LoggedInUser");
+        follow.setFollower(follower);
+        followingService.save(follow);
+        return "redirect:/following";
+    }
+
+    @RequestMapping(value = "unfollow", method = RequestMethod.POST)
+    public String userUnfollowPost(Following follow) {
+        followingService.delete(follow);
+        return "redirect:/following";
+    }
 }
