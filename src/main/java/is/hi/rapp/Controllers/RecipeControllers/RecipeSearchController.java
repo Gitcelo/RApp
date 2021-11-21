@@ -22,8 +22,9 @@ public class RecipeSearchController {
 
     @RequestMapping(value="/titleSearch", method = RequestMethod.GET)
     public String recipeSearchByTitleViewGet(@RequestParam("title") String title, Model model) {
-        List<Recipe> r = recipeService.findByTitle(title);
-        model.addAttribute("recipes", r);
-        return "redirect:/";
+        List<Recipe> recipesFound = recipeService.findByTitle(title);
+        if(recipesFound.isEmpty()) model.addAttribute("recipes", null);
+        else model.addAttribute("recipes", recipesFound);
+        return "searchResults";
     }
 }
