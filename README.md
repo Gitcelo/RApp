@@ -15,3 +15,6 @@ RecipePageController sem sýnir allar uppskriftir sem eru published.
 
 - Breytti recipeUploadController í recipeUploadedController. Í staðinn fyrir að hlaða upp published uppskriftum
 þá sýnir hann bara published uppskriftir. recipeChangeController sér um að breyta uppskriftum yfir í published.
+
+- Breytti frá userFollowingViewPost yfir í userFollowPost, þar sem ekki þarf að sjá að maður sé að followa einn
+ákveðinn einstakling.
