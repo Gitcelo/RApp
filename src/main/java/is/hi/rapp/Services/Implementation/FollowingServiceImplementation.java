@@ -1,6 +1,7 @@
 package is.hi.rapp.Services.Implementation;
 
 
+import is.hi.rapp.Persistence.Entities.Following;
 import is.hi.rapp.Persistence.Entities.User;
 import is.hi.rapp.Persistence.Repositories.FollowingRepository;
 import is.hi.rapp.Services.FollowingService;
@@ -16,6 +17,6 @@ public class FollowingServiceImplementation implements FollowingService {
     @Autowired
     public FollowingServiceImplementation(FollowingRepository followingRepository) {this.followingRepository = followingRepository;}
 
-    //@Override
-    //public List<Following> findByFollower(User follower) {return followingRepository.findByFollower(follower);}
+    @Override
+    public List<Following> findByFollower(User follower) {return followingRepository.findByFollower(follower);}
 }
