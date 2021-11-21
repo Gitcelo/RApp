@@ -12,5 +12,9 @@
     <td th:text="${recipe.title}"></td>
     <td th:text="${recipe.description}"></td>
 </tr>
+
+<form action="#" th:action="@{/deleteUser/{id}(id=${user.ID})}" method="get">
+    <button type="submit">Delete User</button>
+</form>
 </body>
 </html>
