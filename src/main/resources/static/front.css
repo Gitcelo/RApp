@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 16px;
-    background: rgb(255,210,158) url("/img/Bread.jpg") no-repeat;
+    background: rgb(255,210,158) url("/img/baker.jpg") no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -15,15 +15,16 @@ header {
     position: fixed;
     top:0;
     left:0;
-    padding: 0.5rem;
+    padding: 0;
     width: 100%;
-    background-color: rgba(76, 175, 80, 0.2);
+    background-color: rgba(168,124,36,0.2);
 }
 
 .navbar {
     list-style-type: none;
     display: flex;
     justify-content: flex-end;
+    padding: 0;
 }
 
 li {
@@ -35,8 +36,32 @@ a {text-decoration: none}
 
 nav {
     padding-right: 1rem;
+    display: flex;
+    align-items: center;
 }
 
 main {
-    margin: 4.5rem auto 0;
+    margin: 10rem auto 0;
 }
+
+.centered {
+    text-align: center;
+    background-color: rgb(255,210,159);
+    padding: 2rem;
+}
+
+h1 {
+    margin-left: 1rem;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.navbutton {
+    background-color: #B8BBCC;
+    border: 0.1rem solid;
+    padding: 1rem;
+    margin: 0.2rem;
+}
+

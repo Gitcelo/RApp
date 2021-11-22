@@ -7,23 +7,23 @@
 </head>
 <body>
 <header>
-    <p>RApp</p>
+    <h1>RApp</h1>
 <nav>
     <ul class="navbar" th:if="${LoggedInUser==null}">
-        <li><a href="/signup">Sign up</a></li>
-        <li><a href="/login">Log in</a></li>
+        <li class="navbutton"><a href="/signup">Sign up</a></li>
+        <li class="navbutton"><a href="/login">Log in</a></li>
     </ul>
     <ul class="navbar" th:if="${LoggedInUser!=null}">
-        <li><a href="/LoggedInUser">My profile</a></li>
-        <li><a href="/createRecipe">Create Recipe</a></li>
-        <li><a href="/published">Published recipes</a></li>
-        <li><a href="/following">Following</a></li>
-        <li><a href="/logout">Logout</a></li>
+        <li class="navbutton"><a href="/LoggedInUser">My profile</a></li>
+        <li class="navbutton"><a href="/createRecipe">Create Recipe</a></li>
+        <li class="navbutton"><a href="/published">Published recipes</a></li>
+        <li class="navbutton"><a href="/following">Following</a></li>
+        <li class="navbutton"><a href="/logout">Logout</a></li>
     </ul>
 </nav>
 </header>
 <main>
-<div th:switch="${recipes}">
+<div class="centered" th:switch="${recipes}">
     <h2 th:case="Null">No recipes yet!</h2>
     <div th:case="*">
         <h2>Recipes</h2>
