@@ -1,31 +1,28 @@
 <!DOCTYPE html>
-<html html xmlns:th="https://thymeleaf.org">
+<html xmlns:th="https://thymeleaf.org">
 <head>
     <link rel="stylesheet" th:href="@{/front.css}">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>RApp</title>
 </head>
 <body>
-<p>Frontpage</p>
-
-<div th:switch="${LoggedInUser}">
-    <div th:case="Null">
-    <p><a href="/signup">Sign up</a></p>
-    <p><a href="/login">Login</a></p>
-    </div>
-    <div th:case="*">
-        <p th:text="'User ' + ${LoggedInUser.userName} + ' is logged in'"/>
-        <a href="/LoggedInUser">My profile</a>
-    </div>
-</div>
-
-<div th:if="${LoggedInUser!=null}">
-    <p><a href="/logout">Logout</a></p>
-
-    <p><a href="/createRecipe">Create Recipe</a></p>
-    <p><a href="/published">Published recipes</a></p>
-    <p><a href="/following">Following</a></p>
-
+<header>
+    <p>RApp</p>
+<nav>
+    <ul class="navbar" th:if="${LoggedInUser==null}">
+        <li><a href="/signup">Sign up</a></li>
+        <li><a href="/login">Log in</a></li>
+    </ul>
+    <ul class="navbar" th:if="${LoggedInUser!=null}">
+        <li><a href="/LoggedInUser">My profile</a></li>
+        <li><a href="/createRecipe">Create Recipe</a></li>
+        <li><a href="/published">Published recipes</a></li>
+        <li><a href="/following">Following</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</nav>
+</header>
+<main>
 <div th:switch="${recipes}">
     <h2 th:case="Null">No recipes yet!</h2>
     <div th:case="*">
@@ -61,5 +58,6 @@
     </div>
 </div>
 </div>
+</main>
 </body>
 </html>
