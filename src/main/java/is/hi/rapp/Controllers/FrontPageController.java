@@ -13,7 +13,7 @@ import java.util.List;
 
 @Controller
 public class FrontPageController {
-    private RecipeService recipeService;
+    private final RecipeService recipeService;
 
     @Autowired
     public FrontPageController(RecipeService recipeService){ this.recipeService = recipeService; }
