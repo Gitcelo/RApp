@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html html xmlns:th="https://thymeleaf.org">
 <head>
+    <link rel="stylesheet" th:href="@{/front.css}">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-Frontpage
+<p>Frontpage</p>
 
 <div th:switch="${LoggedInUser}">
     <div th:case="Null">
