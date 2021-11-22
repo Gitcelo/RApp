@@ -12,7 +12,7 @@ import java.util.List;
 
 @Controller
 public class RecipeUploadedController {
-    private RecipeService recipeService;
+    private final RecipeService recipeService;
 
     @Autowired
     public RecipeUploadedController(RecipeService recipeService) {

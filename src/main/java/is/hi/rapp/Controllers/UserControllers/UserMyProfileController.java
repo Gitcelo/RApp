@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserMyProfileController {
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserMyProfileController(UserService userService){ this.userService = userService; }

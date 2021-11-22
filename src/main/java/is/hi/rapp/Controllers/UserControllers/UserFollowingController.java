@@ -14,7 +14,7 @@ import java.util.List;
 
 @Controller
 public class UserFollowingController {
-    private FollowingService followingService;
+    private final FollowingService followingService;
 
     @Autowired
     public UserFollowingController(FollowingService followingService) {this.followingService = followingService;}

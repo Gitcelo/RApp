@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class UserChangeController {
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserChangeController(UserService userService) {

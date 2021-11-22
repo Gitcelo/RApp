@@ -4,14 +4,13 @@ import is.hi.rapp.Persistence.Entities.User;
 import is.hi.rapp.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class UserCreateController {
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserCreateController(UserService userService) {
@@ -19,12 +18,12 @@ public class UserCreateController {
     }
 
     @RequestMapping(value="/signup", method = RequestMethod.GET)
-    public String userCreateViewGet(User user) {
+    public String userCreateViewGet() {
         return "userTemplates/createUser";
     }
 
     @RequestMapping(value="/signup", method = RequestMethod.POST)
-    public String userCreateViewPost(User user, BindingResult result, Model model) {
+    public String userCreateViewPost(User user, BindingResult result) {
         if(result.hasErrors()) {
             return "redirect:/signup";
         }

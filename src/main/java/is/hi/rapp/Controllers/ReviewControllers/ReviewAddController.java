@@ -18,8 +18,8 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class ReviewAddController {
-    private ReviewService reviewService;
-    private RecipeService recipeService;
+    private final ReviewService reviewService;
+    private final RecipeService recipeService;
 
     @Autowired
     public ReviewAddController(ReviewService reviewService, RecipeService recipeService) {

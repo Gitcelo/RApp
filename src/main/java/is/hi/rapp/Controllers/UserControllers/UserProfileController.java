@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class UserProfileController {
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserProfileController(UserService userService){ this.userService = userService; }

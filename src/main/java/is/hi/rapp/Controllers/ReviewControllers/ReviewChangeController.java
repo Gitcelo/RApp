@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class ReviewChangeController {
-    private ReviewService reviewService;
+    private final ReviewService reviewService;
 
     @Autowired
     public ReviewChangeController(ReviewService reviewService) {

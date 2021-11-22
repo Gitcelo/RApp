@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class RecipeChangeController {
-    private RecipeService recipeService;
+    private final RecipeService recipeService;
 
     @Autowired
     public RecipeChangeController(RecipeService recipeService) {

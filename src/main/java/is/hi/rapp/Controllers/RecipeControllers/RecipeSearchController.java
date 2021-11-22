@@ -13,7 +13,7 @@ import java.util.List;
 
 @Controller
 public class RecipeSearchController {
-    private RecipeService recipeService;
+    private final RecipeService recipeService;
 
     @Autowired
     public RecipeSearchController(RecipeService recipeService) {

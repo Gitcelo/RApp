@@ -15,13 +15,11 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class RecipeCreateController {
-    private RecipeService recipeService;
-    private UserService userService;
+    private final RecipeService recipeService;
 
     @Autowired
-    public RecipeCreateController(RecipeService recipeService, UserService userService) {
+    public RecipeCreateController(RecipeService recipeService) {
         this.recipeService = recipeService;
-        this.userService = userService;
     }
 
     @RequestMapping(value="/createRecipe", method = RequestMethod.GET)
