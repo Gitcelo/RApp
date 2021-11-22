@@ -25,6 +25,6 @@ public class RecipeSearchController {
         List<Recipe> recipesFound = recipeService.findByTitle(title);
         if(recipesFound.isEmpty()) model.addAttribute("recipes", null);
         else model.addAttribute("recipes", recipesFound);
-        return "recipeSearchResults";
+        return "recipeTemplates/recipeSearchResults";
     }
 }

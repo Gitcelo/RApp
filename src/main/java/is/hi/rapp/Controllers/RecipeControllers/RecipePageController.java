@@ -29,7 +29,7 @@ public class RecipePageController {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         model.addAttribute("LoggedInUser", sessionUser);
         model.addAttribute("recipe", recipeService.findByID(id));
-        return "recipe";
+        return "recipeTemplates/recipe";
     }
 
     @RequestMapping(value="/randomRecipe", method = RequestMethod.GET)

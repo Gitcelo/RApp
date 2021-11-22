@@ -9,8 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.List;
-
 @Controller
 public class UserCreateController {
     private UserService userService;
@@ -20,15 +18,15 @@ public class UserCreateController {
         this.userService = userService;
     }
 
-    @RequestMapping(value="/createUser", method = RequestMethod.GET)
+    @RequestMapping(value="/signup", method = RequestMethod.GET)
     public String userCreateViewGet(User user) {
-        return "createUser";
+        return "userTemplates/createUser";
     }
 
-    @RequestMapping(value="/createUser", method = RequestMethod.POST)
+    @RequestMapping(value="/signup", method = RequestMethod.POST)
     public String userCreateViewPost(User user, BindingResult result, Model model) {
         if(result.hasErrors()) {
-            return "redirect:/createUser";
+            return "redirect:/signup";
         }
         User exists = userService.findByUserName(user.getUserName());
         if(exists == null) {

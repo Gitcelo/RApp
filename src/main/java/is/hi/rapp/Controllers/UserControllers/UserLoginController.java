@@ -25,7 +25,7 @@ public class UserLoginController {
     public String loginGET(@ModelAttribute("user") User user, HttpSession session) {
         User loggedIn = (User) session.getAttribute("LoggedInUser");
         if(loggedIn != null) return "redirect:/loggedin";
-        return "logIn";
+        return "userTemplates/logIn";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -35,7 +35,7 @@ public class UserLoginController {
         if(exists != null) {
             session.setAttribute("LoggedInUser", exists);
             model.addAttribute("LoggedInUser", exists);
-            return "LoggedInUser";
+            return "userTemplates/LoggedInUser";
         }
         return "redirect:/";
     }
@@ -45,7 +45,7 @@ public class UserLoginController {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser != null) {
             model.addAttribute("LoggedInUser", sessionUser);
-            return "LoggedInUser";
+            return "userTemplates/LoggedInUser";
         }
         return "redirect:/";
     }

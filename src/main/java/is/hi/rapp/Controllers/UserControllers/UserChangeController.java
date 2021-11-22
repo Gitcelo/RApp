@@ -32,7 +32,7 @@ public class UserChangeController {
             }
         }
 
-        return "LoggedInUser";
+        return "userTemplates/LoggedInUser";
     }
 
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.GET)

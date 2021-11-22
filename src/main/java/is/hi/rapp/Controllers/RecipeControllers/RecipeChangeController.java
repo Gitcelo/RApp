@@ -27,7 +27,7 @@ public class RecipeChangeController {
     public String recipeChangeViewGet(@PathVariable("id") long id, Model model) {
         Recipe recipeToEdit = recipeService.findByID(id);
         model.addAttribute("recipe", recipeToEdit);
-        return "editRecipe";
+        return "recipeTemplates/editRecipe";
     }
 
     @RequestMapping(value="/editRecipe/{id}", method = RequestMethod.POST)

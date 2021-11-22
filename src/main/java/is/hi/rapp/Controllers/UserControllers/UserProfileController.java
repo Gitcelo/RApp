@@ -22,6 +22,6 @@ public class UserProfileController {
 
         model.addAttribute("user", userToView);
 
-        return "user";
+        return "userTemplates/user";
     }
 }

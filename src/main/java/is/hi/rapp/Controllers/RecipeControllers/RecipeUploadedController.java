@@ -23,6 +23,6 @@ public class RecipeUploadedController {
     public String recipeUploadedViewGet(Model model) {
         List<Recipe> publishedRecipes = recipeService.findPublishedRecipes();
         model.addAttribute("recipes", publishedRecipes);
-        return "publishedRecipes";
+        return "recipeTemplates/publishedRecipes";
     }
 }

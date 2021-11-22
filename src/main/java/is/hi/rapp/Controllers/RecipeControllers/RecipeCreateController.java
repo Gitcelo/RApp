@@ -30,7 +30,7 @@ public class RecipeCreateController {
         if(sessionUser == null) {
             return "redirect:/login";
         }
-        return "createRecipe";
+        return "recipeTemplates/createRecipe";
     }
 
     @RequestMapping(value="/createRecipe", method = RequestMethod.POST)

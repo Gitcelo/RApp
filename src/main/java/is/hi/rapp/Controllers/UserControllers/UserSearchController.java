@@ -1,6 +1,5 @@
 package is.hi.rapp.Controllers.UserControllers;
 
-import is.hi.rapp.Persistence.Entities.Recipe;
 import is.hi.rapp.Persistence.Entities.User;
 import is.hi.rapp.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +27,6 @@ public class UserSearchController {
         model.addAttribute("LoggedInUser", sessionUser);
         model.addAttribute("Users", allUsers);
 
-        return "users";
+        return "userTemplates/users";
     }
 }

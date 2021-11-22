@@ -26,7 +26,7 @@ public class UserFollowingController {
             List<Following> followings = followingService.findByFollower(sessionUser);
             if(followings.isEmpty()) model.addAttribute("followings", null);
             else model.addAttribute("followings", followings);
-            return "following";
+            return "userTemplates/following";
         }
         return "redirect:/";
     }

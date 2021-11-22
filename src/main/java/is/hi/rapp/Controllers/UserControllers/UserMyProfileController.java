@@ -25,7 +25,7 @@ public class UserMyProfileController {
         if(sessionUser != null) {
             model.addAttribute("LoggedInUser", sessionUser);
 
-            return "LoggedInUser";
+            return "userTemplates/LoggedInUser";
         }
 
         return "redirect:/";
