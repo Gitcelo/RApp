@@ -9,7 +9,7 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ID;
     private String description;
-    private boolean liked;
+    private long rating;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
@@ -20,18 +20,18 @@ public class Review {
     public Review() {
 
     }
-    public Review(String description, boolean liked) {
-        this.description = description;
-        this.liked = liked;
 
+    public Review(String description, long rating) {
+        this.description = description;
+        this.rating = rating;
     }
 
     public long getId() {
         return ID;
     }
 
-    public boolean isLiked() {
-        return liked;
+    public long getRating() {
+        return rating;
     }
 
 
@@ -56,8 +56,8 @@ public class Review {
         this.description = description;
     }
 
-    public void setLiked(boolean liked) {
-        this.liked = liked;
+    public void setLiked(long rating) {
+        this.rating = rating;
     }
 
     public void setUser(User user) {

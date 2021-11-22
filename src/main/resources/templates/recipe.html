@@ -10,6 +10,25 @@
 <p th:text = "'Description is: ' + ${recipe.description}"/>
 <p th:text = "'Ingredients are: ' + ${recipe.ingredients}"/>
 
+<div th:switch="${LoggedInUser}">
+    <div th:case="Null">
+        <p><a href="/createUser">Sign up</a></p>
+        <p><a href="/login">Login</a></p>
+    </div>
+    <div th:case="*">
+        <form action="#" th:action="@{/Recipe/{id}/createReview(id = ${recipe.id})}" th:object="${review}" method="post">
+            <label for="description">Description: </label>
+            <input type="text" name="description" id="description" th:field="*{description}"/>
+            <br><br>
+            <label for="rating">Ingredients: </label>
+            <textarea name="rating" id="rating" rows="2" cols="50" th:field="*{rating}"/>
+            <br><br>
+            <input type="submit" value="Add Review"/>
+        </form>
+        <a th:href="@{/Recipe/{id}/createReview(id = ${recipe.id})}">Write a review</a>
+    </div>
+</div>
+
 <td><a href="/">Go to frontpage</a></td>
 </body>
 </html>
