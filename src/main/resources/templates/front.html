@@ -8,7 +8,7 @@
 <body>
 <header>
     <div class="content">
-        <h2 class="logo">RApp</h2>
+        <h2 class="logo"><a href="/">RApp</a></h2>
         <nav>
             <ul class="navbar" th:if="${LoggedInUser==null}">
                 <li class="navbutton"><a href="/signup">Sign up</a></li>
@@ -16,15 +16,20 @@
             </ul>
             <ul class="navbar" th:if="${LoggedInUser!=null}">
                 <li class="navbutton"><a href="/LoggedInUser">My profile</a></li>
-                <li class="navbutton"><a href="/createRecipe">Create Recipe</a></li>
-                <li class="navbutton"><a href="/published">Published recipes</a></li>
                 <li class="navbutton"><a href="/following">Following</a></li>
                 <li class="navbutton"><a href="/logout">Logout</a></li>
             </ul>
         </nav>
     </div>
-    <div class="headline">
+    <div class="headline" th:if="${LoggedInUser==null}">
         <h1>Welcome to Rapp!</h1>
+    </div>
+    <div class="headline" th:if="${LoggedInUser!=null}">
+        <h1 th:text="'Welcome ' + ${LoggedInUser.userName} + '!'"></h1>
+        <div class="select">
+            <h2><a href="/createRecipe">Create Recipe</a></h2>
+            <h2><a href="/published">Published recipes</a></h2>
+        </div>
     </div>
 </header>
 <main>
@@ -41,13 +46,11 @@
                 <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Description</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="recipe : ${recipes}">
                     <td th:text="${recipe.title}"></td>
-                    <td th:text="${recipe.description}"></td>
                     <td>
                         <form action="#" th:action="@{/editRecipe/{id}(id=${recipe.id})}" method="get">
                             <button th:id="'recipe_button' + ${recipe.id}" type="submit">
