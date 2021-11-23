@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://thymeleaf.org">
 <head>
+    <link rel="stylesheet" th:href="@{/error.css}">
     <meta charset="UTF-8">
     <title>Error</title>
 </head>
 <body>
-    <p>An error has occurred!</p>
-    <p><a href="/">Back to homepage</a></p>
+<header>
+    <div class="content">
+        <h2 class="logo"><a href="/">RApp</a></h2>
+        <nav th:switch="${LoggedInUser}">
+            <ul class="navbar" th:case="null">
+                <li class="navbutton"><a href="/signup">Sign up</a></li>
+                <li class="navbutton"><a href="/login">Log in</a></li>
+            </ul>
+            <ul class="navbar" th:case="*">
+                <li class="navbutton"><a href="/LoggedInUser">My profile</a></li>
+                <li class="navbutton"><a href="/following">Following</a></li>
+                <li class="navbutton"><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+<div class="message">
+    <h1>Oh no! An error has occurred!</h1>
+    <p><a href="/">Return to homepage</a></p>
+</div>
+</main>
 </body>
 </html>
