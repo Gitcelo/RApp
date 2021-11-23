@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="https://thymeleaf.org">
 <head>
+    <link rel="stylesheet" th:href="@{/recipeStyles/recipeForms.css}">
     <meta charset="UTF-8">
     <title>Create Recipe</title>
 </head>
 <body>
+<header>
+    <div class="content">
+        <h2 class="logo"><a href="/">RApp</a></h2>
+        <nav>
+            <ul class="navbar">
+                <li class="navbutton"><a href="/LoggedInUser">My profile</a></li>
+                <li class="navbutton"><a href="/following">Following</a></li>
+                <li class="navbutton"><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
 <h2>Create your recipe</h2>
 <form action="#" th:action="@{/createRecipe}" th:object="${recipe}" method="post">
     <label for="title">Title: </label>
@@ -21,5 +35,6 @@
     <br><br>
     <input type="submit" value="Create recipe"/>
 </form>
+</main>
 </body>
 </html>
