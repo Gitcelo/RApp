@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="https://thymeleaf.org">
 <head>
+    <link rel="stylesheet" th:href="@{/recipeStyles/recipeForms.css}">
     <meta charset="UTF-8">
     <title>Edit recipe</title>
 </head>
 <body>
-<h2>Edit your recipe</h2>
-<form action="#" th:action="@{/editRecipe/{id}(id=${recipe.id})}" th:object="${recipe}" method="post">
-    <label for="title">Title: </label>
-    <input type="text" name="title" id="title" th:field="*{title}"/>
-    <br><br>
-    <label for="description">Description: </label>
-    <input type="text" name="description" id="description" th:field="*{description}"/>
-    <br><br>
-    <label for="ingredients">Ingredients: </label>
-    <textarea name="ingredients" id="ingredients" rows="2" cols="50" th:field="*{ingredients}"/>
-    <br><br>
-    <label for="published">Make recipe public: </label>
-    <input type="checkbox" name="published" id="published" th:field="*{published}">
-    <br><br>
-    <input type="submit" value="Submit changes"/>
-</form>
-<form action="#" th:action="@{/deleteRecipe/{id}(id=${recipe.id})}" method="get">
-    <button type="submit">Delete recipe</button>
-</form>
+<header>
+    <div class="content">
+        <h2 class="logo"><a href="/">RApp</a></h2>
+        <nav>
+            <ul class="navbar">
+                <li class="navbutton"><a href="/LoggedInUser">My profile</a></li>
+                <li class="navbutton"><a href="/following">Following</a></li>
+                <li class="navbutton"><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <section class="create">
+        <h1>Edit your recipe</h1>
+        <form action="#" th:action="@{/createRecipe}" th:object="${recipe}" method="post">
+            <input type="text" name="title" id="title" placeholder="Title" th:field="*{title}"/>
+            <textarea name="description" id="description" placeholder="Description" th:field="*{description}"/>
+            <textarea name="ingredients" id="ingredients" placeholder="Ingredients" rows="2" cols="50"
+                      th:field="*{ingredients}"/>
+            <div>
+                <label for="published" class="checktext">Make recipe public: </label>
+                <input type="checkbox" name="published" id="published" th:field="*{published}">
+            </div>
+            <input class="sub" type="submit" value="Submit"/>
+        </form>
+        <form action="#" th:action="@{/deleteRecipe/{id}(id=${recipe.id})}" method="get">
+            <input class="sub" type="submit" value="Delete recipe"/>
+        </form>
+    </section>
+</main>
 </body>
 </html>
