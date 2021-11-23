@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="https://thymeleaf.org">
 <head>
+    <link rel="stylesheet" th:href="@{/forms.css}">
     <meta charset="UTF-8">
     <title>Signup</title>
 </head>
 <body>
-<h2>Signup for an account</h2>
-<form action="#" th:action="@{/signup}" th:object="${user}" method="post">
-    <label for="userName">Username: </label>
-    <input type="text" name="userName" id="userName" th:field="*{userName}"/>
-    <br><br>
-    <label for="email">Email: </label>
-    <input type="text" name="email" id="email" th:field="*{email}"/>
-    <br><br>
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password" th:value="*{password}"/>
-    <br><br>
-    <input type="submit" value="Sign up"/>
-    <br><br>
-</form>
-
-<td><a href="/">Go to frontpage</a></td>
+<header>
+    <div class="content">
+        <h2 class="logo"><a href="/">RApp</a></h2>
+        <nav>
+            <ul class="navbar">
+                <li class="navbutton"><a href="/LoggedInUser">My profile</a></li>
+                <li class="navbutton"><a href="/following">Following</a></li>
+                <li class="navbutton"><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <section class="create">
+        <h1>Sign up for an account</h1>
+        <form action="#" th:action="@{/signup}" th:object="${user}" method="post">
+            <input type="text" name="userName" id="userName" placeholder="Username" th:field="*{userName}"/>
+            <input type="text" name="email" id="email" placeholder="Email" th:field="*{email}"/>
+            <input type="password" name="password" id="password" placeholder="Password" th:value="*{password}"/>
+            <input class="sub" type="submit" value="Sign up"/>
+        </form>
+    </section>
+</main>
 </body>
 </html>
