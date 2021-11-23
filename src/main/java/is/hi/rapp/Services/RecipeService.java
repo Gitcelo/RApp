@@ -13,5 +13,6 @@ public interface RecipeService {
     List<Recipe> findByTitle(String title);
     long findRandomId();
     List<Recipe> findPublishedRecipes();
+    List<Recipe> findBySearchBar(String keyword);
     List<Recipe> findByUser(User user);
 }
