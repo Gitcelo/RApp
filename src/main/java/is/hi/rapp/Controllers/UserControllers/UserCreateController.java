@@ -5,6 +5,7 @@ import is.hi.rapp.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -18,12 +19,12 @@ public class UserCreateController {
     }
 
     @RequestMapping(value="/signup", method = RequestMethod.GET)
-    public String userCreateViewGet() {
+    public String userCreateViewGet(@ModelAttribute("user") User user) {
         return "userTemplates/createUser";
     }
 
     @RequestMapping(value="/signup", method = RequestMethod.POST)
-    public String userCreateViewPost(User user, BindingResult result) {
+    public String userCreateViewPost(@ModelAttribute("user") User user, BindingResult result) {
         if(result.hasErrors()) {
             return "redirect:/signup";
         }

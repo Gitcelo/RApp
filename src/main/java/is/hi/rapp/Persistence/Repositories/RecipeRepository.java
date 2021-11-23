@@ -20,4 +20,7 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
     @Query(nativeQuery = true, value = "SELECT ID FROM Recipe ORDER BY RANDOM() LIMIT 1")
     long findRandomId();
+
+    @Query(nativeQuery = true, value = "SELECT * FROM Recipe r WHERE r.title LIKE %?1%")
+    List<Recipe> findBySearchBar(String keyword);
 }

@@ -7,6 +7,7 @@ import is.hi.rapp.Services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -51,6 +52,24 @@ public class RecipeServiceImplementation implements RecipeService {
     @Override
     public List<Recipe> findPublishedRecipes() {
         return recipeRepository.findPublishedRecipes();
+    }
+
+    @Override
+    public List<Recipe> findBySearchBar(String keyword) {
+        String[] splitKeyword = keyword.trim().split("\\s+");
+        List<Recipe> recipes = new ArrayList<Recipe>();
+
+        for(int i = 0; i < splitKeyword.length; i++) {
+            List<Recipe> test = recipeRepository.findBySearchBar(splitKeyword[i]);
+            for(Recipe pls : test) {
+                if(!recipes.contains(pls)) {
+                    recipes.add(pls);
+                }
+            }
+        }
+
+        return recipes;
+        //return recipeRepository.findBySearchBar(keyword);
     }
 
     @Override

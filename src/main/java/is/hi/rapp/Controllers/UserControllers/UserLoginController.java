@@ -35,7 +35,7 @@ public class UserLoginController {
         if(exists != null) {
             session.setAttribute("LoggedInUser", exists);
             model.addAttribute("LoggedInUser", exists);
-            return "userTemplates/LoggedInUser";
+            return "redirect:/";
         }
         return "redirect:/";
     }
