@@ -21,7 +21,7 @@
 <main>
     <section class="create">
         <h1>Edit your recipe</h1>
-        <form action="#" th:action="@{/createRecipe}" th:object="${recipe}" method="post">
+        <form action="#" th:action="@{/editRecipe/{id}(id=${recipe.id})}" th:object="${recipe}" method="post">
             <input type="text" name="title" id="title" placeholder="Title" th:field="*{title}"/>
             <textarea name="description" id="description" placeholder="Description" th:field="*{description}"/>
             <textarea name="ingredients" id="ingredients" placeholder="Ingredients" rows="2" cols="50"
