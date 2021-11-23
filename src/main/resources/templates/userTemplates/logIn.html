@@ -12,7 +12,6 @@
         <nav>
             <ul class="navbar">
                 <li class="navbutton"><a href="/signup">Sign up</a></li>
-                <li class="navbutton"><a href="/login">Log in</a></li>
             </ul>
         </nav>
     </div>
@@ -23,7 +22,7 @@
         <form action="#" th:action="@{/login}" th:object="${user}" method="post">
             <input type="text" name="userName" id="userName" placeholder="Username" th:field="*{userName}"/><br>
             <input type="password" name="password" id="password" placeholder="Password" th:value="*{password}"/><br>
-            <input class="sub" type="submit" value="Login"/>
+            <input class="sub" type="submit" value="Log in"/>
         </form>
     </section>
 </main>

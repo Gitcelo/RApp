@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class UserCreateController {
     private final UserService userService;
@@ -19,7 +21,11 @@ public class UserCreateController {
     }
 
     @RequestMapping(value="/signup", method = RequestMethod.GET)
-    public String userCreateViewGet(@ModelAttribute("user") User user) {
+    public String userCreateViewGet(@ModelAttribute("user") User user, HttpSession session) {
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        if(sessionUser != null) {
+            return "redirect:/";
+        }
         return "userTemplates/createUser";
     }
 
