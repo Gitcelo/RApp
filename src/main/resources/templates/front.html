@@ -35,28 +35,17 @@
 <main>
     <div class="centered" th:switch="${recipes}">
         <h2 th:case="Null">No recipes yet!</h2>
-        <div th:case="*">
+        <div class="tdiv" th:case="*">
             <h2>Recipes</h2>
-            <form action="#" th:action="@{/titleSearch}" method="get">
+            <form class="search" action="#" th:action="@{/titleSearch}" method="get">
                 <input type="text" name="title" id="title" placeholder="Search for recipe"/>
                 <input type="submit" value="Search"/>
             </form>
             <table>
-                <thead>
-                <tr>
-                    <th>Title</th>
-                </tr>
-                </thead>
                 <tbody>
                 <tr th:each="recipe : ${recipes}">
                     <td th:text="${recipe.title}"></td>
-                    <td>
-                        <form action="#" th:action="@{/editRecipe/{id}(id=${recipe.id})}" method="get">
-                            <button th:id="'recipe_button' + ${recipe.id}" type="submit">
-                                Edit recipe
-                            </button>
-                        </form>
-                    </td>
+                    <td><a th:href="@{/editRecipe/{id}(id=${recipe.id})}">Edit recipe</a></td>
                     <td><a th:href="@{/Recipe/{id}(id=${recipe.id})}">Go to recipe</a></td>
                 </tr>
                 </tbody>

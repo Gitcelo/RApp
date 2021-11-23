@@ -141,5 +141,36 @@ header h2 {
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
+.search {
+    margin-bottom: 2rem;
+}
 
+.tdiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%
+}
+
+table {
+    width: 90%;
+    margin-bottom: 2rem;
+    background-color: #3A3A43;
+}
+
+td {
+    width: 33%;
+    height: 2rem;
+    min-height: 2rem;
+    word-break: break-word;
+    padding: 0.2rem;
+}
+
+tr:nth-child(even) {
+    background-color: #E1D1E6;
+}
+
+tr:nth-child(odd) {
+    background-color: #AFA2B3;
+}
 
