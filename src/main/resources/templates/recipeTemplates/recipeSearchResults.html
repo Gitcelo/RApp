@@ -1,39 +1,42 @@
 <!DOCTYPE html>
-<html html xmlns:th="https://thymeleaf.org">
+<html xmlns:th="https://thymeleaf.org">
 <head>
-    <link rel="stylesheet" th:href="@{/recipeStyles/recipeTables.css}">
+    <link rel="stylesheet" th:href="@{/tables.css}">
     <meta charset="UTF-8">
     <title>Search</title>
 </head>
 <body>
-<div th:switch="${recipes}">
-<h2 th:case="Null">No recipes found!</h2>
-<div th:case="*">
-    <h2>Recipes found</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="recipe : ${recipes}">
-            <td th:text="${recipe.title}"></td>
-            <td th:text="${recipe.description}"></td>
-            <td>
-                <form action="#" th:action="@{/editRecipe/{id}(id=${recipe.id})}" method="get">
-                    <button th:id="'recipe_button' + ${recipe.id}" type="submit">
-                        Edit recipe
-                    </button>
-                </form>
-            </td>
-            <td><a th:href="@{/Recipe/{id}(id=${recipe.id})}">Go to recipe</a></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-</div>
-<p><a href="/">To Front Page</a></p>
+<header>
+    <div class="content">
+        <h2 class="logo"><a href="/">RApp</a></h2>
+        <nav>
+            <ul class="navbar" th:if="${LoggedInUser==null}">
+                <li class="navbutton"><a href="/signup">Sign up</a></li>
+                <li class="navbutton"><a href="/login">Log in</a></li>
+            </ul>
+            <ul class="navbar" th:if="${LoggedInUser!=null}">
+                <li class="navbutton"><a href="/LoggedInUser">My profile</a></li>
+                <li class="navbutton"><a href="/following">Following</a></li>
+                <li class="navbutton"><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="centered" th:switch="${recipes}">
+        <h2 th:case="Null">No recipes found!</h2>
+        <div class="tdiv" th:case="*">
+            <h2>Recipes found</h2>
+            <table>
+                <tbody>
+                <tr th:each="recipe : ${recipes}">
+                    <td th:text="${recipe.title}"></td>
+                    <td><a th:href="@{/Recipe/{id}(id=${recipe.id})}">Go to recipe</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
+</main>
 </html>

@@ -43,7 +43,6 @@ public class UserLoginController {
     public String loggedInGET(HttpSession session, Model model) {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser != null) {
-            model.addAttribute("LoggedInUser", sessionUser);
             return "userTemplates/LoggedInUser";
         }
         return "redirect:/";
