@@ -24,7 +24,15 @@ header {
     background-image: url("/img/breads.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+}
+
+header h1 {
+    font-size: 6vmax;
+}
+
+header h2 {
+    margin-top: 0;
 }
 
 .content {
@@ -71,14 +79,6 @@ nav {
 
 h1, h2, h3, h4 {
     font-family: 'Montaga', Georgia, serif;
-}
-
-header h1 {
-    font-size: 6vmax;
-}
-
-header h2 {
-    margin-top: 0;
 }
 
 .navbutton {
@@ -132,7 +132,6 @@ header h2 {
     padding: 2rem;
     margin-left: 10rem;
     margin-right: 10rem;
-    margin-bottom: 2rem;
 }
 
 .centered h2 {
@@ -173,4 +172,3 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
     background-color: #AFA2B3;
 }
-

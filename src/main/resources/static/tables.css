@@ -25,7 +25,7 @@ header {
     width: 100%;
 }
 
-header .content {
+.content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,7 +50,19 @@ li {
     margin-right: 1rem;
 }
 
-a {text-decoration: none;}
+a {
+    text-decoration: none;
+}
+
+main a {
+    color: rgb(204,204,255);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin: 1rem;
+}
+
+main a:hover {
+    color: #FFFCFC;
+}
 
 nav {
     padding-right: 1rem;
@@ -90,42 +102,46 @@ header h1 {
     color: #FFFCFC;
 }
 
-.create {
-    margin-top: 5rem;
+.centered {
+    text-align: center;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    background-color: #7A6B6B;
+    padding: 2rem;
+    margin-top: 3rem;
 }
 
-.create h1 {
+.centered h2 {
     color: #FFFCFC;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     margin-bottom: 1rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-form {
+.tdiv {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%
 }
 
-input, textarea {
-    margin-bottom: 1rem;
-}
-
-.checktext {
-    color: #FFFCFC;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
-.sub {
-    width: 6rem;
-    height: 2rem;
+table {
+    width: 90%;
+    margin-bottom: 2rem;
     background-color: #3A3A43;
-    color: #FFFCFC;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.tafla {
-    border: 1px solid black;
+td {
+    width: 33%;
+    height: 2rem;
+    min-height: 2rem;
+    word-break: break-word;
+    padding: 0.2rem;
+}
+
+tr:nth-child(even) {
+    background-color: #E1D1E6;
+}
+
+tr:nth-child(odd) {
+    background-color: #AFA2B3;
 }

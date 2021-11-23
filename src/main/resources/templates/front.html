@@ -22,7 +22,7 @@
         </nav>
     </div>
     <div class="headline" th:if="${LoggedInUser==null}">
-        <h1>Welcome to Rapp!</h1>
+        <h1>Welcome to RApp!</h1>
     </div>
     <div class="headline" th:if="${LoggedInUser!=null}">
         <h1 th:text="'Welcome ' + ${LoggedInUser.userName} + '!'"></h1>
