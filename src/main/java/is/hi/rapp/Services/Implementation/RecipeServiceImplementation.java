@@ -30,6 +30,14 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
+    public double calculateAVG(Recipe recipe, long rating) {
+        long numberOfReviews = recipe.getReviews().size();
+        double totalRating = recipe.getAvgRating() * numberOfReviews;
+        totalRating = totalRating + rating;
+        return totalRating/(numberOfReviews+1);
+    }
+
+    @Override
     public List<Recipe> findAll() {
         return recipeRepository.findAll();
     }
@@ -52,6 +60,11 @@ public class RecipeServiceImplementation implements RecipeService {
     @Override
     public List<Recipe> findPublishedRecipes() {
         return recipeRepository.findPublishedRecipes();
+    }
+
+    @Override
+    public List<Recipe> findTrendyRecipes() {
+        return recipeRepository.findTrendyRecipes();
     }
 
     @Override

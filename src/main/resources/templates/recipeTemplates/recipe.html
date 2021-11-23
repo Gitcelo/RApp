@@ -20,8 +20,15 @@
             <label for="description">Description: </label>
             <input type="text" name="description" id="description" th:field="*{description}"/>
             <br><br>
-            <label for="rating">Ingredients: </label>
-            <textarea name="rating" id="rating" rows="2" cols="50" th:field="*{rating}"/>
+            <label for="rating">Rating: </label>
+            <select name="rating" id="rating" th:field="*{rating}">
+                <option th:value = "0" th:text="Zero"></option>
+                <option th:value = "1" th:text="One"></option>
+                <option th:value = "2" th:text="Two"></option>
+                <option th:value = "3" th:text="Three"></option>
+                <option th:value = "4" th:text="Four"></option>
+                <option th:value = "5" th:text="Five"></option>
+            </select>
             <br><br>
             <input type="submit" value="Add Review"/>
         </form>

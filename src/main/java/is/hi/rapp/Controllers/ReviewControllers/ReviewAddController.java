@@ -37,17 +37,30 @@ public class ReviewAddController {
     public String reviewAddViewPost(@ModelAttribute("review") Review review,
                                     BindingResult result,
                                     @PathVariable("id") long id,
-                                    HttpSession session) {
+                                    HttpSession session,
+                                    Model model) {
         Recipe recipe = recipeService.findByID(id);
         if(result.hasErrors()) {
             return "redirect:/Recipe"+id;
         }
         User sessionUser = (User) session.getAttribute("LoggedInUser");
-        //Recipe currentRecipe = recipeService.findByID(id);
+
+        double newRating = recipeService.calculateAVG(recipe, review.getRating());
+        recipe.setAvgRating(newRating);
+        recipeService.save(recipe);
+
         review.setUser(sessionUser);
         review.setRecipe(recipe);
         reviewService.save(review);
 
         return "redirect:/Recipe/"+id;
+    }
+
+    @RequestMapping(value = "/Recipe/{id}/changeReview", method = RequestMethod.POST)
+    public String reviewChangeViewPost(@ModelAttribute("review") Review review,
+                                       BindingResult result,
+                                       @PathVariable("id") long id,
+                                       HttpSession session) {
+        return null;
     }
 }
