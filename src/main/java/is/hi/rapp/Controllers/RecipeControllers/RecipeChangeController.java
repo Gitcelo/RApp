@@ -24,7 +24,11 @@ public class RecipeChangeController {
     }
 
     @RequestMapping(value="/editRecipe/{id}", method = RequestMethod.GET)
-    public String recipeChangeViewGet(@PathVariable("id") long id, Model model) {
+    public String recipeChangeViewGet(@PathVariable("id") long id, Model model, HttpSession session) {
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        if(sessionUser == null) {
+            return "redirect:/login";
+        }
         Recipe recipeToEdit = recipeService.findByID(id);
         model.addAttribute("recipe", recipeToEdit);
         return "recipeTemplates/editRecipe";

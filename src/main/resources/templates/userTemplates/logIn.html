@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="https://thymeleaf.org">
 <head>
+    <link rel="stylesheet" th:href="@{/recipeStyles/recipeForms.css}">
     <meta charset="UTF-8">
     <title>Login</title>
 </head>
 <body>
-<h2>Log into your account</h2>
-<form action="#" th:action="@{/login}" th:object="${user}" method="post">
-    <label for="userName">Username: </label>
-    <input type="text" name="userName" id="userName" th:field="*{userName}"/><br>
-    <label for="password">Password:  </label>
-    <input type="password" name="password" id="password" th:value="*{password}"/><br>
-    <input type="submit" value="Login"/>
-</form>
-
-<p><a href="/createUser">Sign up</a></p>
-
-<td><a href="/">Go to frontpage</a></td>
+<header>
+    <div class="content">
+        <h2 class="logo"><a href="/">RApp</a></h2>
+        <nav>
+            <ul class="navbar">
+                <li class="navbutton"><a href="/signup">Sign up</a></li>
+                <li class="navbutton"><a href="/login">Log in</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <section class="create">
+        <h1>Log into your account</h1>
+        <form action="#" th:action="@{/login}" th:object="${user}" method="post">
+            <input type="text" name="userName" id="userName" placeholder="Username" th:field="*{userName}"/><br>
+            <input type="password" name="password" id="password" placeholder="Password" th:value="*{password}"/><br>
+            <input class="sub" type="submit" value="Login"/>
+        </form>
+    </section>
+</main>
 </body>
 </html>
