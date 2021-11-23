@@ -125,3 +125,7 @@ input, textarea {
     color: #FFFCFC;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+
+.tafla {
+    border: 1px solid black;
+}
