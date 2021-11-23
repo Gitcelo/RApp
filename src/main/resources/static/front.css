@@ -92,9 +92,18 @@ header h2 {
 }
 
 .navbutton {
-    border: 0.1rem solid;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     padding: 1rem;
     margin: 0.2rem;
+}
+
+.navbutton a {
+    color: rgb(204,204,255);
+    font-size: 1.5rem;
+}
+
+.navbutton a:hover {
+    color: #FFFCFC;
 }
 
 .headline {
