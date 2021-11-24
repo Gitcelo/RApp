@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="https://thymeleaf.org">
 <head>
+    <link rel="stylesheet" th:href="@{/table.css}">
     <meta charset="UTF-8">
     <title>User</title>
 </head>
 <body>
-<h2>Users</h2>
-<tr th:each="user : ${Users}">
-    <td th:text="${user.userName}"></td>
-    <td><a href="/"></a></td>
-</tr>
+<header>
+    <div class="content">
+        <h2 class="logo"><a href="/">RApp</a></h2>
+        <nav th:switch="${LoggedInUser}">
+            <ul class="navbar" th:case="null">
+                <li class="navbutton"><a href="/signup">Sign up</a></li>
+                <li class="navbutton"><a href="/login">Log in</a></li>
+            </ul>
+            <ul class="navbar" th:case="*">
+                <li class="navbutton"><a href="/LoggedInUser">My profile</a></li>
+                <li class="navbutton"><a href="/following">Following</a></li>
+                <li class="navbutton"><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="centered">
+        <div class="tdiv">
+            <h2>Users</h2>
+            <table>
+                <tbody>
+                <tr th:each="user : ${Users}">
+                    <td th:text="${user.userName}"></td>
+                    <td><a href="/">Profile</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
 </body>
 </html>

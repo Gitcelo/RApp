@@ -48,7 +48,6 @@
                 <tbody>
                 <tr th:each="recipe : ${recipes}">
                     <td th:text="${recipe.title}"></td>
-                    <td><a th:href="@{/editRecipe/{id}(id=${recipe.id})}">Edit recipe</a></td>
                     <td><a th:href="@{/Recipe/{id}(id=${recipe.id})}">Go to recipe</a></td>
                 </tr>
                 </tbody>
