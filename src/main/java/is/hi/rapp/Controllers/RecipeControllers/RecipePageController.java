@@ -31,6 +31,7 @@ public class RecipePageController {
 
         model.addAttribute("LoggedInUser", sessionUser);
         model.addAttribute("recipe", recipe);
+        model.addAttribute("owner", recipe.getUser());
 
         long newViews = recipe.getViews() + 1;
 

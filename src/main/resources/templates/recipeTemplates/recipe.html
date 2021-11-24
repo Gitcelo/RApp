@@ -60,6 +60,9 @@
             </div>
         </div>
     </section>
+    <div th:if="${LoggedInUser.ID==owner.ID || LoggedInUser.admin == true}">
+        <a th:href="@{/deleteRecipe/{id}(id=${recipe.id})}">Delete Recipe</a>
+    </div>
 </main>
 </body>
 </html>

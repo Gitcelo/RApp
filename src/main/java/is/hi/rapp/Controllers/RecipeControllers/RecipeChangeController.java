@@ -49,8 +49,14 @@ public class RecipeChangeController {
     }
 
     @RequestMapping(value = "/deleteRecipe/{id}", method = RequestMethod.GET)
-    public String recipeChangeViewDelete(@PathVariable("id") long id) {
-        recipeService.delete(recipeService.findByID(id));
+    public String recipeChangeViewDelete(@PathVariable("id") long id, HttpSession session) {
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        Recipe recipe = recipeService.findByID(id);
+        User owner = recipe.getUser();
+
+        if(sessionUser.getAdmin() == true || sessionUser.getID() == owner.getID()) {
+            recipeService.delete(recipeService.findByID(id));
+        }
         return "redirect:/";
     }
 
