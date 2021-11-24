@@ -23,6 +23,9 @@
     </div>
     <div class="headline" th:if="${LoggedInUser==null}">
         <h1>Welcome to RApp!</h1>
+        <div class="select">
+            <h2><a href="/published">Published recipes</a></h2>
+        </div>
     </div>
     <div class="headline" th:if="${LoggedInUser!=null}">
         <h1 th:text="'Welcome ' + ${LoggedInUser.userName} + '!'"></h1>
