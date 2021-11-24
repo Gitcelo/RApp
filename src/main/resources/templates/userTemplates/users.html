@@ -26,14 +26,32 @@
     <div class="centered">
         <div class="tdiv">
             <h2>Users</h2>
-            <table>
-                <tbody>
-                <tr th:each="user : ${Users}">
-                    <td th:text="${user.userName}"></td>
-                    <td><a href="/">Profile</a></td>
-                </tr>
-                </tbody>
-            </table>
+            <nav th:switch="${LoggedInUser}">
+                <table th:case="null">
+                    <tbody>
+                    <tr th:each="user : ${Users}">
+                        <td th:text="${user.userName}"></td>
+                        <td><a href="/">Profile</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table th:case="*">
+                    <nav th:switch="${LoggedInUser.admin}">
+                        <tbody th:case="false">
+                        <tr th:each="user : ${Users}">
+                            <td th:text="${user.userName}"></td>
+                            <td><a href="/">Profile</a></td>
+                        </tr>
+                        </tbody>
+                        <tbody th:case="true">
+                        <tr th:each="user : ${Users}">
+                            <td th:text="${user.userName}"></td>
+                            <td><a href="/">Profile</a></td>
+                        </tr>
+                        </tbody>
+                    </nav>
+                </table>
+            </nav>
         </div>
     </div>
 </main>

@@ -13,6 +13,7 @@ public class User {
     private String userName;
     private String email;
     private String password;
+    private boolean admin;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews;
@@ -58,7 +59,9 @@ public class User {
         return recipes;
     }
 
-    //public List<String> getFollowing() { return following; }
+    public boolean getAdmin() { return admin; }
+
+    //public List<String> getFollowings() { return followings; }
 
     public void setID(long ID) {
         this.ID = ID;
@@ -84,5 +87,7 @@ public class User {
         this.recipes = recipes;
     }
 
-    //public void setFollowing(List<String> following) { this.following = following; }
+    public void setAdmin(boolean admin) { this.admin = admin; }
+
+    //public void setFollowings(List<String> followings) { this.followings = followings; }
 }

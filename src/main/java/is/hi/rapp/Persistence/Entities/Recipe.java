@@ -11,6 +11,8 @@ public class Recipe {
     private String description;
     @ElementCollection
     private List<String> ingredients;
+    @ElementCollection
+    private List<String> filters;
     private boolean published;
     private long views;
     private double avgRating;
@@ -63,6 +65,10 @@ public class Recipe {
     public void setIngredients(List<String> ingredients) {
         this.ingredients = ingredients;
     }
+
+    public List<String> getFilters() { return filters; }
+
+    public void setFilters(List<String> filters) { this.filters = filters; }
 
     public boolean isPublished() {
         return published;
