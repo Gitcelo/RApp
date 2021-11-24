@@ -6,6 +6,7 @@ import is.hi.rapp.Services.FollowingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -31,11 +32,16 @@ public class UserFollowingController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/follow", method = RequestMethod.POST)
-    public String userFollowPost(Following follow, HttpSession session) {
-        User follower = (User) session.getAttribute("LoggedInUser");
-        follow.setFollower(follower);
-        followingService.save(follow);
+    @RequestMapping(value = "/follow/{followedId}", method = RequestMethod.POST)
+    public String userFollowPost(@PathVariable("followedId") long followedId, HttpSession session) {
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        if(sessionUser == null) {
+            return "redirect:/login";
+        }
+        if(sessionUser.getID()!=followedId) {
+            Following followed = new Following(followedId, sessionUser);
+            followingService.save(followed);
+        }
         return "redirect:/following";
     }
 
