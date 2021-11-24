@@ -134,6 +134,7 @@ a:hover {
 }
 
 .centered h2 {
+    font-size: 3rem;
     color: #FFFCFC;
     margin-bottom: 1rem;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -168,4 +169,8 @@ td {
 
 tr {
     background-color: #AFA2B3;
+}
+
+.link {
+    margin-bottom: 2rem;
 }

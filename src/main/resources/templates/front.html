@@ -40,6 +40,7 @@
         <h2 th:case="Null">No recipes yet!</h2>
         <div class="tdiv" th:case="*">
             <h2>Recipes</h2>
+            <a class="link" th:href="@{/randomRecipe}">Random recipe</a>
             <form class="search" action="#" th:action="@{/titleSearch}" method="get">
                 <input type="text" name="title" id="title" placeholder="Search for recipe"/>
                 <input type="submit" value="Search"/>
@@ -52,7 +53,6 @@
                 </tr>
                 </tbody>
             </table>
-            <a th:href="@{/randomRecipe}">Random</a>
         </div>
     </div>
     </div>
