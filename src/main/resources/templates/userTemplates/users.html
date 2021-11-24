@@ -38,15 +38,26 @@
                 <table th:case="*">
                     <div class="tdiv" th:switch="${LoggedInUser.admin}">
                         <tbody th:case="false">
-                        <tr th:each="user : ${Users}">
-                            <td th:text="${user.userName}"></td>
-                            <td><a href="/">Profile</a></td>
+                        <tr th:each="user : ${Users}" th:if="${user.ID!=LoggedInUser.ID}">
+                                <td th:text="${user.userName}"></td>
+                                <td><a href="/">Profile</a></td>
+                                <td>
+                                    <form action="#" th:action="@{/follow/{followedId}(followedId=${user.ID})}" method="post">
+                                        <input type="submit" value="Follow"/>
+                                    </form>
+                                </td>
                         </tr>
                         </tbody>
                         <tbody th:case="true">
-                        <tr th:each="user : ${Users}">
+                        <tr th:each="user : ${Users}" th:if="${user.ID!=LoggedInUser.ID}">
                             <td th:text="${user.userName}"></td>
                             <td><a href="/">Profile</a></td>
+                            <td>
+                                <form action="#" th:action="@{/follow/{followedId}(followedId=${user.ID})}" method="post">
+                                    <input type="submit" value="Follow"/>
+                                </form>
+                            </td>
+                            <td><a href="/">Delete user</a></td>
                         </tr>
                         </tbody>
                     </div>
