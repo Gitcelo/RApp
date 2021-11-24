@@ -26,7 +26,7 @@
     <div class="centered">
         <div class="tdiv">
             <h2>Users</h2>
-            <nav th:switch="${LoggedInUser}">
+            <div class="tdiv" th:switch="${LoggedInUser}">
                 <table th:case="null">
                     <tbody>
                     <tr th:each="user : ${Users}">
@@ -36,7 +36,7 @@
                     </tbody>
                 </table>
                 <table th:case="*">
-                    <nav th:switch="${LoggedInUser.admin}">
+                    <div class="tdiv" th:switch="${LoggedInUser.admin}">
                         <tbody th:case="false">
                         <tr th:each="user : ${Users}">
                             <td th:text="${user.userName}"></td>
@@ -49,9 +49,9 @@
                             <td><a href="/">Profile</a></td>
                         </tr>
                         </tbody>
-                    </nav>
+                    </div>
                 </table>
-            </nav>
+            </div>
         </div>
     </div>
 </main>
