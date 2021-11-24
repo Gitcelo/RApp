@@ -104,16 +104,37 @@ header h1 {
 
 .centered {
     text-align: center;
-    display: flex;
-    justify-content: center;
     padding: 2rem;
     margin-top: 3rem;
+    height: 70vh;
 }
 
-.centered h2 {
+.centered h1 {
     color: #FFFCFC;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-size: 3rem;
+}
+
+.info {
+    color: #FFFCFC;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20vh;
+}
+
+table {
+    width: 90%;
+    margin-bottom: 4rem;
+}
+
+td {
+    width: 33%;
+    height: 2rem;
+    min-height: 2rem;
+    word-break: break-word;
+    padding: 0.2rem;
 }
 
 .tdiv {
@@ -123,22 +144,11 @@ header h1 {
     width: 100%
 }
 
-table {
-    width: 90%;
-    margin-bottom: 2rem;
-    background-color: #3A3A43;
-}
-
-td {
-    width: 33%;
+.sub {
+    width: 6rem;
     height: 2rem;
-    min-height: 2rem;
-    word-break: break-word;
-    padding: 0.2rem;
+    background-color: #3A3A43;
     color: #FFFCFC;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-tr {
-    background-color: #AFA2B3;
-}
