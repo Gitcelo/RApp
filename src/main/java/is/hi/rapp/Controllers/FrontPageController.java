@@ -21,7 +21,7 @@ public class FrontPageController {
     @RequestMapping("/")
     public String FrontPageController(HttpSession session, Model model) {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
-        List<Recipe> allRecipes = recipeService.findByUser(sessionUser);
+        List<Recipe> allRecipes = recipeService.findTrendyRecipes();
         if(allRecipes.isEmpty()) model.addAttribute("recipes", null);
         else model.addAttribute("recipes", allRecipes);
         model.addAttribute("LoggedInUser", sessionUser);

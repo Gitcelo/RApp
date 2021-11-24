@@ -27,8 +27,17 @@ public class RecipePageController {
     @RequestMapping(value = "/Recipe/{id}", method = RequestMethod.GET)
     public String recipeViewGet(@ModelAttribute("review") Review review, @PathVariable("id") long id, HttpSession session, Model model) {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
+        Recipe recipe = recipeService.findByID(id);
+
         model.addAttribute("LoggedInUser", sessionUser);
-        model.addAttribute("recipe", recipeService.findByID(id));
+        model.addAttribute("recipe", recipe);
+
+        long newViews = recipe.getViews() + 1;
+
+        recipe.setViews(newViews);
+
+        recipeService.save(recipe);
+
         return "recipeTemplates/recipe";
     }
 
