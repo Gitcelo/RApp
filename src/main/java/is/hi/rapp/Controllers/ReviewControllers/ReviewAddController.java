@@ -37,8 +37,7 @@ public class ReviewAddController {
     public String reviewAddViewPost(@ModelAttribute("review") Review review,
                                     BindingResult result,
                                     @PathVariable("id") long id,
-                                    HttpSession session,
-                                    Model model) {
+                                    HttpSession session) {
         Recipe recipe = recipeService.findByID(id);
         if(result.hasErrors()) {
             return "redirect:/Recipe"+id;

@@ -13,6 +13,7 @@ public class Recipe {
     @ElementCollection
     private List<String> ingredients;
     private boolean published;
+    private long views;
     private double avgRating;
 
     @OneToMany(mappedBy = "recipe",cascade = CascadeType.ALL, orphanRemoval = true)
@@ -79,6 +80,10 @@ public class Recipe {
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
+
+    public void setViews(long views) { this.views = views; }
+
+    public long getViews() { return views; }
 
     public void setAvgRating(double avgRating) { this.avgRating = avgRating; }
 
