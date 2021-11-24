@@ -29,8 +29,11 @@
             <table>
                 <tbody>
                 <tr th:each="user : ${Users}">
+                    <div th:if="${user!=LoggedInUser}">
                     <td th:text="${user.userName}"></td>
-                    <td><a href="/">Profile</a></td>
+                    <td><a href="@{/User/{id}(id=${user.id})}">Profile</a></td>
+                    <td th:if="${LoggedInUser!=null}"><a href="/">Follow</a></td>
+                    </div>
                 </tr>
                 </tbody>
             </table>

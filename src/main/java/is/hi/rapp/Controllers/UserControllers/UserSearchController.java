@@ -26,7 +26,6 @@ public class UserSearchController {
         List<User> allUsers = userService.findAll();
         model.addAttribute("LoggedInUser", sessionUser);
         model.addAttribute("Users", allUsers);
-
         return "userTemplates/users";
     }
 }

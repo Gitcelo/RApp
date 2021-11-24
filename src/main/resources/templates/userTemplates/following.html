@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html html xmlns:th="https://thymeleaf.org">
 <head>
+    <link rel="stylesheet" th:href="@{/table.css}">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    <div th:switch="${followings}">
+<header>
+    <div class="content">
+        <h2 class="logo"><a href="/">RApp</a></h2>
+        <nav th:switch="${LoggedInUser}">
+            <ul class="navbar" th:case="null">
+                <li class="navbutton"><a href="/signup">Sign up</a></li>
+                <li class="navbutton"><a href="/login">Log in</a></li>
+            </ul>
+            <ul class="navbar" th:case="*">
+                <li class="navbutton"><a href="/LoggedInUser">My profile</a></li>
+                <li class="navbutton"><a href="/following">Following</a></li>
+                <li class="navbutton"><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="centered" th:switch="${followings}">
         <h2 th:case="null">Not following anyone</h2>
         <div th:case="*">
             <h2>Users you are following</h2>
             <table>
                 <thead>
-                    <tr>
-                        <th>Username</th>
-                    </tr>
+                <tr>
+                    <th>Username</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="following: ${followings}">
-                        <td th:number="${following.followedUserId}"></td>
-                    </tr>
+                <tr th:each="following: ${followings}">
+                    <td th:number="${following.followedUserId}"></td>
+                </tr>
                 </tbody>
             </table>
         </div>
     </div>
+</main>
 </body>
 </html>
