@@ -23,4 +23,7 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM Recipe r WHERE r.title LIKE %?1%")
     List<Recipe> findBySearchBar(String keyword);
+
+    @Query(nativeQuery = true, value = "SELECT * FROM Recipe ORDER BY views DESC LIMIT 5")
+    List<Recipe> findTrendyRecipes();
 }

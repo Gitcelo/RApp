@@ -23,9 +23,7 @@ public class User {
     @OneToMany(mappedBy = "follower",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Following> followings;
 
-    public User() {
-
-    }
+    public User() {}
 
     public User(String userName, String email, String password, List<Recipe> recipes) {
         this.userName = userName;

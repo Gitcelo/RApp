@@ -56,7 +56,7 @@ public class Review {
         this.description = description;
     }
 
-    public void setLiked(long rating) {
+    public void setRating(long rating) {
         this.rating = rating;
     }
 

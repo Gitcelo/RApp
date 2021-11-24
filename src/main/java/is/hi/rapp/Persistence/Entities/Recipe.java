@@ -1,6 +1,5 @@
 package is.hi.rapp.Persistence.Entities;
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,9 +12,11 @@ public class Recipe {
     @ElementCollection
     private List<String> ingredients;
     private boolean published;
+    private long views;
+    private double avgRating;
 
     @OneToMany(mappedBy = "recipe",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Review> reviews = new ArrayList<>();
+    private List<Review> reviews;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
@@ -78,6 +79,14 @@ public class Recipe {
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
+
+    public void setViews(long views) { this.views = views; }
+
+    public long getViews() { return views; }
+
+    public void setAvgRating(double avgRating) { this.avgRating = avgRating; }
+
+    public double getAvgRating() { return avgRating; }
 
     public User getUser() {
         return user;

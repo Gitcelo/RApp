@@ -39,10 +39,12 @@ public class RecipeChangeController {
         if(result.hasErrors()) {
             return "redirect:/editRecipe";
         }
-        User sessionUser = (User) session.getAttribute("LoggedInUser");
-        recipe.setUser(sessionUser);
-        recipe.setId(id);
-        recipeService.save(recipe);
+
+        Recipe recipeToChange = recipeService.findByID(id);
+        recipeToChange.setTitle(recipe.getTitle());
+        recipeToChange.setDescription(recipe.getDescription());
+        recipeToChange.setIngredients(recipe.getIngredients());
+        recipeService.save(recipeToChange);
         return "redirect:/";
     }
 
