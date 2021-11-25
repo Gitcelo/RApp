@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" th:href="@{/table.css}">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Following</title>
 </head>
 <body>
 <header>
@@ -23,19 +23,20 @@
     </div>
 </header>
 <main>
-    <div class="centered" th:switch="${followings}">
+    <div class="centered" th:switch="${users}">
         <h2 th:case="null">Not following anyone</h2>
-        <div th:case="*">
+        <div class="tdiv" th:case="*">
             <h2>Users you are following</h2>
             <table>
-                <thead>
-                <tr>
-                    <th>Username</th>
-                </tr>
-                </thead>
                 <tbody>
-                <tr th:each="following: ${followings}">
-                    <td th:number="${following.followedUserId}"></td>
+                <tr th:each="user: ${users}">
+                    <td th:text="${user.userName}"></td>
+                    <td><a th:href="@{/User/{id}(id=${user.ID})}">Profile</a></td>
+                    <td>
+                        <form action="#" th:action="@{/unfollow/{followedId}(followedId=${user.ID})}" method="post">
+                            <input type="submit" value="Unfollow">
+                        </form>
+                    </td>
                 </tr>
                 </tbody>
             </table>
