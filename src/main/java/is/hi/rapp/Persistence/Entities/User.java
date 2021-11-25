@@ -30,9 +30,7 @@ public class User {
         this.userName = userName;
         this.email = email;
         this.password = password;
-        //this.reviews = reviews;
         this.recipes = recipes;
-        //this.following = following;
     }
 
     public long getID() {
