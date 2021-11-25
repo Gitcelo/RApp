@@ -44,6 +44,7 @@ public class RecipeChangeController {
         recipeToChange.setTitle(recipe.getTitle());
         recipeToChange.setDescription(recipe.getDescription());
         recipeToChange.setIngredients(recipe.getIngredients());
+        recipeToChange.setPublished(recipe.isPublished());
         recipeService.save(recipeToChange);
         return "redirect:/";
     }

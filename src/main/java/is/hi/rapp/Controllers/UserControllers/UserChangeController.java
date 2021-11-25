@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class UserChangeController {
     private final UserService userService;
@@ -36,9 +38,14 @@ public class UserChangeController {
     }
 
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.GET)
-    public String UserChangeViewDelete(@PathVariable("id") long id, User user) {
+    public String UserChangeViewDelete(@PathVariable("id") long id, HttpSession session) {
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
         User userToDelete = userService.findByID(id);
-        userService.delete(userToDelete);
-        return "redirect: /";
+
+        if(sessionUser.getAdmin() == true) {
+            userService.delete(userToDelete);
+            return "redirect:/users";
+        }
+        return "redirect:/";
     }
 }
