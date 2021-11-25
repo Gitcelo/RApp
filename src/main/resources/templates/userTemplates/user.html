@@ -15,7 +15,7 @@
                 <li class="navbutton"><a href="/login">Log in</a></li>
             </ul>
             <ul class="navbar" th:case="*">
-                <li class="navbutton"><a href="/LoggedInUser">My profile</a></li>
+                <li class="navbutton"><a th:href="@{/User/{id}(id=${LoggedInUser.ID})}">My profile</a></li>
                 <li class="navbutton"><a href="/following">Following</a></li>
                 <li class="navbutton"><a href="/logout">Logout</a></li>
             </ul>
@@ -37,14 +37,14 @@
                     <td th:text="${user.email}"></td>
                     </tbody>
                 </table>
-            <table class="recipe">
-                <tr th:each="recipe : ${user.recipes}">
-                    <td th:text="${recipe.title}"></td>
-                    <td th:text="${recipe.description}"></td>
-                    <td><a th:href="@{/Recipe/{id}(id=${recipe.id})}">Go to recipe</a></td>
-                    <td th:if="${LoggedInUser!=null && user.ID==LoggedInUser.ID}"><a th:href="@{/editRecipe/{id}(id=${recipe.id})}">Edit recipe</a></td>
-                </tr>
-            </table>
+                <table class="recipe">
+                    <tr th:each="recipe : ${user.recipes}">
+                        <td th:text="${recipe.title}"></td>
+                        <td th:text="${recipe.description}"></td>
+                        <td><a th:href="@{/Recipe/{id}(id=${recipe.id})}">Go to recipe</a></td>
+                        <td th:if="${LoggedInUser!=null && user.ID==LoggedInUser.ID}"><a th:href="@{/editRecipe/{id}(id=${recipe.id})}">Edit recipe</a></td>
+                    </tr>
+                </table>
             </div>
         </div>
         <form th:if="${LoggedInUser!=null && LoggedInUser.admin==true}" action="#"

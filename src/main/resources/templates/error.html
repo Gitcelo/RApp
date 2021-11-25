@@ -15,7 +15,7 @@
                 <li class="navbutton"><a href="/login">Log in</a></li>
             </ul>
             <ul class="navbar" th:case="*">
-                <li class="navbutton"><a href="/LoggedInUser">My profile</a></li>
+                <li class="navbutton"><a th:href="@{/User/{id}(id=${LoggedInUser.ID})}">My profile</a></li>
                 <li class="navbutton"><a href="/following">Following</a></li>
                 <li class="navbutton"><a href="/logout">Logout</a></li>
             </ul>

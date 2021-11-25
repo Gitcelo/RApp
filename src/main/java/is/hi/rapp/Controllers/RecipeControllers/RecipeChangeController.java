@@ -29,6 +29,7 @@ public class RecipeChangeController {
         if(sessionUser == null) {
             return "redirect:/login";
         }
+        model.addAttribute("LoggedInUser", sessionUser);
         Recipe recipeToEdit = recipeService.findByID(id);
         model.addAttribute("recipe", recipeToEdit);
         return "recipeTemplates/editRecipe";
@@ -39,7 +40,6 @@ public class RecipeChangeController {
         if(result.hasErrors()) {
             return "redirect:/editRecipe";
         }
-
         Recipe recipeToChange = recipeService.findByID(id);
         recipeToChange.setTitle(recipe.getTitle());
         recipeToChange.setDescription(recipe.getDescription());

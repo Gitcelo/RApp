@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="https://thymeleaf.org">
 <head>
-    <link rel="stylesheet" th:href="@{/tables.css}">
+    <link rel="stylesheet" th:href="@{/table.css}">
     <meta charset="UTF-8">
     <title>Search</title>
 </head>
@@ -15,7 +15,7 @@
                 <li class="navbutton"><a href="/login">Log in</a></li>
             </ul>
             <ul class="navbar" th:if="${LoggedInUser!=null}">
-                <li class="navbutton"><a href="/LoggedInUser">My profile</a></li>
+                <li class="navbutton"><a th:href="@{/User/{id}(id=${LoggedInUser.ID})}">My profile</a></li>
                 <li class="navbutton"><a href="/following">Following</a></li>
                 <li class="navbutton"><a href="/logout">Logout</a></li>
             </ul>
