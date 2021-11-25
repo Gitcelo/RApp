@@ -44,7 +44,7 @@ public class UserChangeController {
 
         if(sessionUser.getAdmin() == true) {
             userService.delete(userToDelete);
-            return "redirect:/users";
+            return "redirect:/";
         }
         return "redirect:/";
     }

@@ -60,6 +60,7 @@
             </div>
         </div>
     </section>
+    <a th:href="@{/User/{id}(id=${owner.ID})}">Go to owner</a>
     <div th:if="${LoggedInUser != null}">
         <div th:if="${LoggedInUser.ID==owner.ID || LoggedInUser.admin == true}">
             <a th:href="@{/deleteRecipe/{id}(id=${recipe.id})}">Delete Recipe</a>
