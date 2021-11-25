@@ -21,7 +21,7 @@ public class UserChangeController {
     }
 
     @RequestMapping(value = "/LoggedInUser", method = RequestMethod.PATCH)
-    public String UserChangeViewPatch(User user, String password, String newPassword, String newEmail, Model model) {
+    public String UserChangeViewPatch(User user, String password, String newPassword, String newEmail) {
         User userToChange = userService.findByID(user.getID());
 
         if(password.equals(userToChange.getPassword())) {

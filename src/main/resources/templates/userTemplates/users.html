@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" th:href="@{/table.css}">
     <meta charset="UTF-8">
-    <title>User</title>
+    <title>Users</title>
 </head>
 <body>
 <header>
@@ -31,7 +31,7 @@
                     <tbody>
                     <tr th:each="user : ${Users}">
                         <td th:text="${user.userName}"></td>
-                        <td><a href="/">Profile</a></td>
+                        <td><a th:href="@{/User/{id}(id=${user.ID})}">Profile</a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -40,7 +40,7 @@
                         <tbody th:case="false">
                         <tr th:each="user : ${Users}" th:if="${user.ID!=LoggedInUser.ID}">
                                 <td th:text="${user.userName}"></td>
-                                <td><a href="/">Profile</a></td>
+                                <td><a th:href="@{/User/{id}(id=${user.ID}})}">Profile</a></td>
                                 <td>
                                     <form action="#" th:action="@{/follow/{followedId}(followedId=${user.ID})}" method="post">
                                         <input type="submit" value="Follow"/>
@@ -51,7 +51,7 @@
                         <tbody th:case="true">
                         <tr th:each="user : ${Users}" th:if="${user.ID!=LoggedInUser.ID}">
                             <td th:text="${user.userName}"></td>
-                            <td><a href="/">Profile</a></td>
+                            <td><a th:href="@{/User/{id}(id=${user.ID})}">Profile</a></td>
                             <td>
                                 <form action="#" th:action="@{/follow/{followedId}(followedId=${user.ID})}" method="post">
                                     <input type="submit" value="Follow"/>

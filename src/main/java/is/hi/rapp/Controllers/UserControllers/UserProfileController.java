@@ -22,9 +22,7 @@ public class UserProfileController {
     public String userProfileViewGet(@PathVariable("id") long id, Model model, HttpSession session) {
         User userToView =  userService.findByID(id);
         User sessionUser = (User) session.getAttribute("LoggedInUser");
-        if(sessionUser!=null) {
-            model.addAttribute("LoggedInUser", sessionUser);
-        }
+        model.addAttribute("LoggedInUser", sessionUser);
         model.addAttribute("user", userToView);
         return "userTemplates/user";
     }
