@@ -1,20 +1,57 @@
 <!DOCTYPE html>
 <html xmlns:th="https://thymeleaf.org">
 <head>
+    <link rel="stylesheet" th:href="@{/users.css}">
     <meta charset="UTF-8">
-    <title>User</title>
+    <title>User profile</title>
 </head>
 <body>
-<h2>User</h2>
-<p th:text = "'Username is: ' + ${user.userName}"/>
-<p th:text = "'Email is: ' + ${user.email}"/>
-<tr th:each="recipe : ${user.recipes}">
-    <td th:text="${recipe.title}"></td>
-    <td th:text="${recipe.description}"></td>
-</tr>
-
-<form action="#" th:action="@{/deleteUser/{id}(id=${user.ID})}" method="get">
-    <button type="submit">Delete User</button>
-</form>
+<header>
+    <div class="content">
+        <h2 class="logo"><a href="/">RApp</a></h2>
+        <nav th:switch="${LoggedInUser}">
+            <ul class="navbar" th:case="null">
+                <li class="navbutton"><a href="/signup">Sign up</a></li>
+                <li class="navbutton"><a href="/login">Log in</a></li>
+            </ul>
+            <ul class="navbar" th:case="*">
+                <li class="navbutton"><a href="/LoggedInUser">My profile</a></li>
+                <li class="navbutton"><a href="/following">Following</a></li>
+                <li class="navbutton"><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <section class="centered">
+        <h1>User</h1>
+        <div class="info">
+            <div class="tdiv">
+                <table class="user">
+                    <thead>
+                    <th>Username</th>
+                    <th>Email</th>
+                    </thead>
+                    <tbody>
+                    <td th:text="${user.userName}"></td>
+                    <td th:text="${user.email}"></td>
+                    </tbody>
+                </table>
+            <table class="recipe">
+                <tr th:each="recipe : ${user.recipes}">
+                    <td th:text="${recipe.title}"></td>
+                    <td th:text="${recipe.description}"></td>
+                    <td><a th:href="@{/Recipe/{id}(id=${recipe.id})}">Go to recipe</a></td>
+                    <td th:if="${LoggedInUser!=null && user.ID==LoggedInUser.ID}"><a th:href="@{/editRecipe/{id}(id=${recipe.id})}">Edit recipe</a></td>
+                </tr>
+            </table>
+            </div>
+        </div>
+        <form th:if="${LoggedInUser!=null && LoggedInUser.admin==true}" action="#"
+              th:action="@{/deleteUser/{id}(id=${user.ID})}" method="get">
+            <button type="submit">Delete User</button>
+        </form>
+    </section>
+</main>
 </body>
 </html>
