@@ -142,3 +142,10 @@ td {
 tr {
     background-color: #AFA2B3;
 }
+
+.sub {
+    background-color: #3A3A43;
+    color: #FFFCFC;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin-bottom: 1rem;
+}
