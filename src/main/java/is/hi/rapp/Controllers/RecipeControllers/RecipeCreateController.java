@@ -5,6 +5,7 @@ import is.hi.rapp.Persistence.Entities.User;
 import is.hi.rapp.Services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +23,12 @@ public class RecipeCreateController {
     }
 
     @RequestMapping(value="/createRecipe", method = RequestMethod.GET)
-    public String recipeCreateViewGet(@ModelAttribute("recipe") Recipe recipe, HttpSession session) {
+    public String recipeCreateViewGet(@ModelAttribute("recipe") Recipe recipe, HttpSession session, Model model) {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser == null) {
             return "redirect:/login";
         }
+        model.addAttribute("LoggedInUser", sessionUser);
         return "recipeTemplates/createRecipe";
     }
 
