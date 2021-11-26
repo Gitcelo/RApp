@@ -57,9 +57,9 @@ public class User {
         return recipes;
     }
 
-    public boolean getAdmin() { return admin; }
+    public List<Following> getFollowings() { return followings; }
 
-    //public List<String> getFollowings() { return followings; }
+    public boolean isAdmin() { return admin; }
 
     public void setID(long ID) {
         this.ID = ID;
@@ -87,5 +87,5 @@ public class User {
 
     public void setAdmin(boolean admin) { this.admin = admin; }
 
-    //public void setFollowings(List<String> followings) { this.followings = followings; }
+    public void setFollowings(List<Following> followings) { this.followings = followings; }
 }

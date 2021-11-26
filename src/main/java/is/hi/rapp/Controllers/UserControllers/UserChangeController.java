@@ -4,7 +4,6 @@ import is.hi.rapp.Persistence.Entities.User;
 import is.hi.rapp.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,7 +33,7 @@ public class UserChangeController {
             }
         }
 
-        return "userTemplates/LoggedInUser";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.GET)
@@ -42,7 +41,7 @@ public class UserChangeController {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         User userToDelete = userService.findByID(id);
 
-        if(sessionUser.getAdmin() == true) {
+        if(sessionUser.isAdmin()) {
             userService.delete(userToDelete);
             return "redirect:/";
         }

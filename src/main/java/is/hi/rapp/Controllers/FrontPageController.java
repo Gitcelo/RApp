@@ -19,7 +19,7 @@ public class FrontPageController {
     public FrontPageController(RecipeService recipeService){ this.recipeService = recipeService; }
 
     @RequestMapping("/")
-    public String FrontPageController(HttpSession session, Model model) {
+    public String frontPageController(HttpSession session, Model model) {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         List<Recipe> allRecipes = recipeService.findTrendyRecipes();
         if(allRecipes.isEmpty()) model.addAttribute("recipes", null);

@@ -36,7 +36,7 @@ public class RecipeChangeController {
     }
 
     @RequestMapping(value="/editRecipe/{id}", method = RequestMethod.POST)
-    public String recipeChangeViewPatch(Recipe recipe, @PathVariable("id") long id, BindingResult result, HttpSession session) {
+    public String recipeChangeViewPatch(Recipe recipe, @PathVariable("id") long id, BindingResult result) {
         if(result.hasErrors()) {
             return "redirect:/editRecipe";
         }
@@ -55,7 +55,7 @@ public class RecipeChangeController {
         Recipe recipe = recipeService.findByID(id);
         User owner = recipe.getUser();
 
-        if(sessionUser.getAdmin() == true || sessionUser.getID() == owner.getID()) {
+        if(sessionUser.isAdmin() || sessionUser.getID() == owner.getID()) {
             recipeService.delete(recipeService.findByID(id));
         }
         return "redirect:/";

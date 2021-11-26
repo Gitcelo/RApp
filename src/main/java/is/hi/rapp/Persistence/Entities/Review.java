@@ -17,9 +17,7 @@ public class Review {
     @ManyToOne(fetch = FetchType.LAZY)
     private Recipe recipe;
 
-    public Review() {
-
-    }
+    public Review() {}
 
     public Review(String description, long rating) {
         this.description = description;

@@ -24,9 +24,7 @@ public class Following {
         return followedUserId;
     }
 
-    public void setFollowedUserId(long followedUserId) {
-        this.followedUserId = followedUserId;
-    }
+    public void setFollowedUserId(long followedUserId) { this.followedUserId = followedUserId; }
 
     public User getFollower() {
         return follower;

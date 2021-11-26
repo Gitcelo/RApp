@@ -24,7 +24,7 @@ public class UserLoginController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginGET(@ModelAttribute("user") User user, HttpSession session) {
         User loggedIn = (User) session.getAttribute("LoggedInUser");
-        if(loggedIn != null) return "redirect:/loggedin";
+        if(loggedIn != null) return "redirect:/";
         return "userTemplates/logIn";
     }
 
@@ -35,15 +35,6 @@ public class UserLoginController {
         if(exists != null) {
             session.setAttribute("LoggedInUser", exists);
             model.addAttribute("LoggedInUser", exists);
-        }
-        return "redirect:/";
-    }
-
-    @RequestMapping(value = "/loggedin", method = RequestMethod.GET)
-    public String loggedInGET(HttpSession session, Model model) {
-        User sessionUser = (User) session.getAttribute("LoggedInUser");
-        if(sessionUser != null) {
-            return "userTemplates/LoggedInUser";
         }
         return "redirect:/";
     }
