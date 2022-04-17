@@ -1,8 +1,11 @@
 package is.hi.rapp.Persistence.Entities;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@JsonIgnoreProperties({"ingredients", "reviews"})
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +21,11 @@ public class Recipe {
     @OneToMany(mappedBy = "recipe",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews;
 
+   /* @ManyToOne(fetch = FetchType.LAZY)
+    private User user;*/
+
     @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+    private Page page;
 
     public Recipe() {
 
@@ -88,11 +94,11 @@ public class Recipe {
 
     public double getAvgRating() { return avgRating; }
 
-    public User getUser() {
-        return user;
-    }
+    //public User getUser() { return user; }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+    public Page getPage() { return page; }
+
+    public void setPage(Page page) { this.page = page; }
+
+    //public void setUser(User user) { this.user = user; }
 }

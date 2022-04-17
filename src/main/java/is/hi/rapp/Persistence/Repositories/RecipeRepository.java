@@ -13,7 +13,7 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     List<Recipe> findAll();
     List<Recipe> findByTitle(String title);
     Recipe findByID(long id);
-    List<Recipe> findByUser(User user);
+    //List<Recipe> findByUser(User user);
 
     @Query(nativeQuery = true, value = "SELECT * FROM Recipe r WHERE r.published=true")
     List<Recipe> findPublishedRecipes();

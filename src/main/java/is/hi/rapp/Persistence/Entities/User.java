@@ -18,11 +18,14 @@ public class User {
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
+    /*@OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Recipe> recipes;
 
     @OneToMany(mappedBy = "follower",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Following> followings;
+    private List<Following> followings;*/
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Page> pages;
 
     public User() {}
 
@@ -30,7 +33,7 @@ public class User {
         this.userName = userName;
         this.email = email;
         this.password = password;
-        this.recipes = recipes;
+        //this.recipes = recipes;
     }
 
     public long getID() {
@@ -53,11 +56,13 @@ public class User {
         return reviews;
     }
 
-    public List<Recipe> getRecipes() {
-        return recipes;
-    }
+    public List<Page> getPages() { return pages; }
 
-    public List<Following> getFollowings() { return followings; }
+    public void setPages(List<Page> pages) { this.pages = pages; }
+
+    //public List<Recipe> getRecipes() { return recipes; }
+
+    //public List<Following> getFollowings() { return followings; }
 
     public boolean isAdmin() { return admin; }
 
@@ -81,11 +86,9 @@ public class User {
         this.reviews = reviews;
     }
 
-    public void setRecipes(List<Recipe> recipes) {
-        this.recipes = recipes;
-    }
+    //public void setRecipes(List<Recipe> recipes) { this.recipes = recipes; }
 
     public void setAdmin(boolean admin) { this.admin = admin; }
 
-    public void setFollowings(List<Following> followings) { this.followings = followings; }
+    //public void setFollowings(List<Following> followings) { this.followings = followings; }
 }

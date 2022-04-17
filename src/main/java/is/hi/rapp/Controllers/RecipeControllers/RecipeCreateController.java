@@ -1,7 +1,9 @@
 package is.hi.rapp.Controllers.RecipeControllers;
 
+import is.hi.rapp.Persistence.Entities.Page;
 import is.hi.rapp.Persistence.Entities.Recipe;
 import is.hi.rapp.Persistence.Entities.User;
+import is.hi.rapp.Services.PageService;
 import is.hi.rapp.Services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,10 +18,12 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class RecipeCreateController {
     private final RecipeService recipeService;
+    private final PageService pageService;
 
     @Autowired
-    public RecipeCreateController(RecipeService recipeService) {
+    public RecipeCreateController(RecipeService recipeService, PageService pageService) {
         this.recipeService = recipeService;
+        this.pageService = pageService;
     }
 
     @RequestMapping(value="/createRecipe", method = RequestMethod.GET)
@@ -38,7 +42,8 @@ public class RecipeCreateController {
             return "redirect:/createRecipe";
         }
         User sessionUser = (User) session.getAttribute("LoggedInUser");
-        recipe.setUser(sessionUser);
+        Page page = pageService.findByID(1);
+        recipe.setPage(page);
         recipeService.save(recipe);
         return "redirect:/";
     }

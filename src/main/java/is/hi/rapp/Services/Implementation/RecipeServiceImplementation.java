@@ -85,8 +85,8 @@ public class RecipeServiceImplementation implements RecipeService {
         //return recipeRepository.findBySearchBar(keyword);
     }
 
-    @Override
+    /*@Override
     public List<Recipe> findByUser(User user) {
         return recipeRepository.findByUser(user);
-    }
+    }*/
 }

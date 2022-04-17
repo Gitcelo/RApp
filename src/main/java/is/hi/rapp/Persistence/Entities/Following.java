@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Following {
     @Id
-    private long followedUserId;
+    private long followedPageId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User follower;
@@ -16,15 +16,15 @@ public class Following {
     public Following() {}
 
     public Following(long followedUserId, User follower) {
-        this.followedUserId = followedUserId;
+        this.followedPageId = followedUserId;
         this.follower = follower;
     }
 
     public long getFollowedUserId() {
-        return followedUserId;
+        return followedPageId;
     }
 
-    public void setFollowedUserId(long followedUserId) { this.followedUserId = followedUserId; }
+    public void setFollowedUserId(long followedUserId) { this.followedPageId = followedUserId; }
 
     public User getFollower() {
         return follower;

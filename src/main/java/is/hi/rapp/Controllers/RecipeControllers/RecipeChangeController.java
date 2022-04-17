@@ -1,5 +1,6 @@
 package is.hi.rapp.Controllers.RecipeControllers;
 
+import is.hi.rapp.Persistence.Entities.Page;
 import is.hi.rapp.Persistence.Entities.Recipe;
 import is.hi.rapp.Persistence.Entities.User;
 import is.hi.rapp.Services.RecipeService;
@@ -52,8 +53,10 @@ public class RecipeChangeController {
     @RequestMapping(value = "/deleteRecipe/{id}", method = RequestMethod.GET)
     public String recipeChangeViewDelete(@PathVariable("id") long id, HttpSession session) {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
+        //Skoða seinna
         Recipe recipe = recipeService.findByID(id);
-        User owner = recipe.getUser();
+        Page page = recipe.getPage();
+        User owner = page.getUser();
 
         if(sessionUser.isAdmin() || sessionUser.getID() == owner.getID()) {
             recipeService.delete(recipeService.findByID(id));

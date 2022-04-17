@@ -16,5 +16,5 @@ public interface RecipeService {
     List<Recipe> findPublishedRecipes();
     List<Recipe> findTrendyRecipes();
     List<Recipe> findBySearchBar(String keyword);
-    List<Recipe> findByUser(User user);
+    //List<Recipe> findByUser(User user);
 }
