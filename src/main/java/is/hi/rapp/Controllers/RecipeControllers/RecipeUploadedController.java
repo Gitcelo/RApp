@@ -29,4 +29,12 @@ public class RecipeUploadedController {
         model.addAttribute("LoggedInUser", sessionUser);
         return "recipeTemplates/publishedRecipes";
     }
+
+    @RequestMapping(value="/trending", method = RequestMethod.GET)
+    public String recipeTrendyViewGet(Model model) {
+        List<Recipe> trendyRecipes = recipeService.findTrendyRecipes();
+        model.addAttribute("recipes", trendyRecipes);
+        // Nota publishedRecipes sem placeholder því það er ekki til template fyrir trendy
+        return "recipeTemplates/publishedRecipes";
+    }
 }
