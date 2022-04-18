@@ -24,7 +24,7 @@ public class RecipePageController {
         this.recipeService = recipeService;
     }
 
-    @RequestMapping(value = "/REST/Recipe/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/Recipe/{id}", method = RequestMethod.GET)
     public String recipeViewGet(@ModelAttribute("review") Review review, @PathVariable("id") long id, HttpSession session, Model model) {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         Recipe recipe = recipeService.findByID(id);
@@ -42,13 +42,13 @@ public class RecipePageController {
         return "recipeTemplates/recipe";
     }
 
-    @RequestMapping(value="/REST/randomRecipe", method = RequestMethod.GET)
+    @RequestMapping(value="/randomRecipe", method = RequestMethod.GET)
     public String recipeRandomPageViewGet() {
         long id = recipeService.findRandomId();
         return "redirect:/Recipe/" + id;
     }
 
-    @RequestMapping(value="/REST/publishedRecipes", method = RequestMethod.GET)
+    @RequestMapping(value="/publishedRecipes", method = RequestMethod.GET)
     public String recipePublishedPageViewGet(Model model) {
         List<Recipe> publishedRecipes = recipeService.findPublishedRecipes();
         model.addAttribute("publishedRecipes", publishedRecipes);
