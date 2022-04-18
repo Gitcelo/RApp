@@ -24,7 +24,7 @@ public class RecipePageController {
         this.recipeService = recipeService;
     }
 
-    @RequestMapping(value = "REST/Recipe/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/REST/Recipe/{id}", method = RequestMethod.GET)
     public String recipeViewGet(@ModelAttribute("review") Review review, @PathVariable("id") long id, HttpSession session, Model model) {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         Recipe recipe = recipeService.findByID(id);
