@@ -5,6 +5,7 @@ import is.hi.rapp.Persistence.Entities.Recipe;
 import is.hi.rapp.Persistence.Entities.User;
 import is.hi.rapp.Services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,6 +33,12 @@ public class RecipeRestController {
         Recipe recipe = recipeService.findByID(id);
 
         return recipe;
+    }
+
+    @RequestMapping(value="/REST/trending", method = RequestMethod.GET)
+    public List<Recipe> recipeTrendyViewGet() {
+        List<Recipe> trendyRecipes = recipeService.findTrendyRecipes();
+        return trendyRecipes;
     }
 
     @RequestMapping(value = "/REST/Recipe/{id}", method = RequestMethod.GET)
