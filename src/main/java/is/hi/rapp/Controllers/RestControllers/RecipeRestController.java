@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -27,6 +28,7 @@ public class RecipeRestController {
         return publishedRecipes;
     }
 
+    @Transactional
     @RequestMapping(value = "/REST/randomRecipe", method = RequestMethod.GET)
     public Recipe randomRecipe() {
         long id = recipeService.findRandomId();
@@ -61,10 +63,13 @@ public class RecipeRestController {
     }
 
     @RequestMapping(value="REST/editRecipe/{id}", method = RequestMethod.POST)
-    public Recipe changeRecipe(@PathVariable long id, @RequestBody String recipeTitle) {
-        Recipe recipe = recipeService.findByID(id);
-        recipe.setTitle(recipeTitle);
-        return recipeService.save(recipe);
+    public Recipe changeRecipe(@PathVariable long id, @RequestBody Recipe recipe) {
+        Recipe changeRecipe = recipeService.findByID(id);
+        changeRecipe.setTitle(recipe.getTitle());
+        changeRecipe.setDescription(recipe.getDescription());
+        changeRecipe.setIngredients(recipe.getIngredients());
+        changeRecipe.setPublished(recipe.isPublished());
+        return recipeService.save(changeRecipe);
     }
 
     //DELETE routes
