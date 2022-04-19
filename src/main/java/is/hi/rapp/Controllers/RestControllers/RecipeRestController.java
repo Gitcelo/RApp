@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -34,7 +35,7 @@ public class RecipeRestController {
 
         return recipe;
     }
-
+    @Transactional
     @RequestMapping(value="/REST/trending", method = RequestMethod.GET)
     public List<Recipe> recipeTrendyViewGet() {
         List<Recipe> trendyRecipes = recipeService.findTrendyRecipes();
