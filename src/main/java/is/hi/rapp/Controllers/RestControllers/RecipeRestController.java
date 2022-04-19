@@ -36,7 +36,7 @@ public class RecipeRestController {
 
         return recipe;
     }
-
+    @Transactional
     @RequestMapping(value="/REST/trending", method = RequestMethod.GET)
     public List<Recipe> recipeTrendyViewGet() {
         List<Recipe> trendyRecipes = recipeService.findTrendyRecipes();
