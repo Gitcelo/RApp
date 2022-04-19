@@ -61,9 +61,9 @@ public class RecipeRestController {
     }
 
     @RequestMapping(value="REST/editRecipe/{id}", method = RequestMethod.POST)
-    public Recipe changeRecipe(@PathVariable long id, @RequestBody String recipeTitle
-            , @RequestBody String recipeDescription) {
-        Recipe recipe = new Recipe(recipeTitle, recipeDescription, null, true);
+    public Recipe changeRecipe(@PathVariable long id, @RequestBody String title) {
+        Recipe recipe = recipeService.findByID(id);
+        recipe.setTitle(title);
         return recipeService.save(recipe);
     }
 
