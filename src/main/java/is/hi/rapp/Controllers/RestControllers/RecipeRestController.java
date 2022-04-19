@@ -63,13 +63,13 @@ public class RecipeRestController {
     }
 
     @RequestMapping(value="REST/editRecipe/{id}", method = RequestMethod.POST)
-    public Recipe changeRecipe(@PathVariable long id, @RequestBody Recipe recipe) {
+    public String changeRecipe(@PathVariable long id, @RequestBody Recipe recipe) {
         Recipe changeRecipe = recipeService.findByID(id);
-        changeRecipe.setTitle(recipe.getTitle());
+        /*changeRecipe.setTitle(recipe.getTitle());
         changeRecipe.setDescription(recipe.getDescription());
         changeRecipe.setIngredients(recipe.getIngredients());
-        changeRecipe.setPublished(recipe.isPublished());
-        return recipeService.save(changeRecipe);
+        changeRecipe.setPublished(recipe.isPublished());*/
+        return recipe.getTitle();
     }
 
     //DELETE routes
