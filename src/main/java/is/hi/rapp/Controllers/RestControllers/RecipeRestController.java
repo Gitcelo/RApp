@@ -79,7 +79,7 @@ public class RecipeRestController {
         changeRecipe.setDescription(recipe.getDescription());
         changeRecipe.setIngredients(recipe.getIngredients());
         changeRecipe.setPublished(recipe.isPublished());*/
-        return String.valueOf(id);
+        return recipe;
     }
 
     //DELETE routes
