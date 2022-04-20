@@ -73,7 +73,7 @@ public class RecipeRestController {
             Recipe r = mapper.readValue(recipe, Recipe.class);
             return r.getTitle();
         } catch (Exception e) {
-
+            return e.getMessage();
         }
         /*changeRecipe.setTitle(recipe.getTitle());
         changeRecipe.setDescription(recipe.getDescription());
