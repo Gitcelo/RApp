@@ -1,5 +1,6 @@
 package is.hi.rapp.Controllers.RestControllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import is.hi.rapp.Persistence.Entities.Page;
 import is.hi.rapp.Persistence.Entities.Recipe;
 import is.hi.rapp.Persistence.Entities.User;
@@ -63,13 +64,15 @@ public class RecipeRestController {
     }
 
     @RequestMapping(value="REST/editRecipe/{id}", method = RequestMethod.POST)
-    public String changeRecipe(@PathVariable long id, @RequestBody Recipe recipe) {
+    public String changeRecipe(@PathVariable long id, @RequestBody String recipe) {
         Recipe changeRecipe = recipeService.findByID(id);
+        /*ObjectMapper mapper = new ObjectMapper();
+        Recipe r = mapper.readValue(recipe, Recipe.class);*/
         /*changeRecipe.setTitle(recipe.getTitle());
         changeRecipe.setDescription(recipe.getDescription());
         changeRecipe.setIngredients(recipe.getIngredients());
         changeRecipe.setPublished(recipe.isPublished());*/
-        return recipe.getTitle();
+        return recipe;
     }
 
     //DELETE routes
