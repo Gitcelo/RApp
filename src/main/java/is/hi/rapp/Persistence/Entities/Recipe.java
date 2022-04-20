@@ -24,8 +24,8 @@ public class Recipe {
    /* @ManyToOne(fetch = FetchType.LAZY)
     private User user;*/
 
-   /* @ManyToOne(fetch = FetchType.LAZY)
-    private Page page;*/
+   @ManyToOne(fetch = FetchType.LAZY)
+    private Page page;
 
     public Recipe() {
 
@@ -96,9 +96,9 @@ public class Recipe {
 
     //public User getUser() { return user; }
 
-    /*public Page getPage() { return page; }
+    public Page getPage() { return page; }
 
-    public void setPage(Page page) { this.page = page; }*/
+    public void setPage(Page page) { this.page = page; }
 
     //public void setUser(User user) { this.user = user; }
 }
