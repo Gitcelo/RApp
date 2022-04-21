@@ -5,7 +5,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@JsonIgnoreProperties({"reviews"})
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +23,7 @@ public class Recipe {
    /* @ManyToOne(fetch = FetchType.LAZY)
     private User user;*/
 
-    @ManyToOne(fetch = FetchType.LAZY)
+   @ManyToOne(fetch = FetchType.LAZY)
     private Page page;
 
     public Recipe() {

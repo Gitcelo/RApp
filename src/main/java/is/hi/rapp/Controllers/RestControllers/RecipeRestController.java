@@ -1,13 +1,18 @@
 package is.hi.rapp.Controllers.RestControllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import is.hi.rapp.Persistence.Entities.Page;
 import is.hi.rapp.Persistence.Entities.Recipe;
 import is.hi.rapp.Persistence.Entities.User;
 import is.hi.rapp.Services.PageService;
 import is.hi.rapp.Services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -29,12 +34,19 @@ public class RecipeRestController {
         return publishedRecipes;
     }
 
+    @Transactional
     @RequestMapping(value = "/REST/randomRecipe", method = RequestMethod.GET)
     public Recipe randomRecipe() {
         long id = recipeService.findRandomId();
         Recipe recipe = recipeService.findByID(id);
 
         return recipe;
+    }
+    @Transactional
+    @RequestMapping(value="/REST/trending", method = RequestMethod.GET)
+    public List<Recipe> recipeTrendyViewGet() {
+        List<Recipe> trendyRecipes = recipeService.findTrendyRecipes();
+        return trendyRecipes;
     }
 
     @RequestMapping(value = "/REST/Recipe/{id}", method = RequestMethod.GET)
@@ -61,8 +73,19 @@ public class RecipeRestController {
     }
 
     @RequestMapping(value="REST/editRecipe/{id}", method = RequestMethod.POST)
-    public Recipe changeRecipe(@PathVariable long id, @RequestBody Recipe recipe) {
-        return recipeService.save(recipe);
+    public String changeRecipe(@PathVariable long id, @RequestBody String recipe) {
+        Recipe changeRecipe = recipeService.findByID(id);
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            Recipe r = mapper.readValue(recipe, Recipe.class);
+            return r.getTitle();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        /*changeRecipe.setTitle(recipe.getTitle());
+        changeRecipe.setDescription(recipe.getDescription());
+        changeRecipe.setIngredients(recipe.getIngredients());
+        changeRecipe.setPublished(recipe.isPublished());*/
     }
 
     //DELETE routes
