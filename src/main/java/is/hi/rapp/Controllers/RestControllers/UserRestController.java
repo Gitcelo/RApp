@@ -55,7 +55,7 @@ public class UserRestController {
 
     @RequestMapping(value="/REST/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public User loginUser(@RequestBody String input) throws JsonProcessingException {
+    public Map<String, String> loginUser(@RequestBody String input) throws JsonProcessingException {
         JsonNode parsedInput = mapper.readTree(input);
         String username = parsedInput.path("username").asText();
         String password = parsedInput.path("password").asText();
@@ -66,9 +66,11 @@ public class UserRestController {
 
         if(exists != null) {
             if(exists.getPassword().equals(password)) {
-                return exists;
+                response = Collections.singletonMap("response", "approved");
+                return response;
            }
         }
-        return new User();
+        response = Collections.singletonMap("response", "approved");
+        return response;
     }
 }
