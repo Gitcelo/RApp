@@ -56,4 +56,11 @@ public class PageRestController {
     public Page changePage(@PathVariable long id, @RequestBody Page page) {
         return pageService.save(page);
     }
+
+    @RequestMapping(value="/REST/userPages", method = RequestMethod.GET)
+    public List<Page> getPagesByUsername(@RequestBody String input) throws JsonProcessingException {
+        JsonNode parsedInput = mapper.readTree(input);
+        User user = userService.findByUserName(parsedInput.path("username").asText());
+        return pageService.findByUser(user);
+    }
 }
