@@ -73,19 +73,15 @@ public class RecipeRestController {
     }
 
     @RequestMapping(value="REST/editRecipe/{id}", method = RequestMethod.POST)
-    public String changeRecipe(@PathVariable long id, @RequestBody String recipe) {
+    public Recipe changeRecipe(@PathVariable long id, @RequestBody String input) throws JsonProcessingException {
         Recipe changeRecipe = recipeService.findByID(id);
         ObjectMapper mapper = new ObjectMapper();
-        try {
-            Recipe r = mapper.readValue(recipe, Recipe.class);
-            return r.getTitle();
-        } catch (Exception e) {
-            return e.getMessage();
-        }
-        /*changeRecipe.setTitle(recipe.getTitle());
+        Recipe recipe = mapper.readValue(input, Recipe.class);
+        changeRecipe.setTitle(recipe.getTitle());
         changeRecipe.setDescription(recipe.getDescription());
         changeRecipe.setIngredients(recipe.getIngredients());
-        changeRecipe.setPublished(recipe.isPublished());*/
+        changeRecipe.setPublished(recipe.isPublished());
+        return recipeService.save(changeRecipe);
     }
 
     //DELETE routes
