@@ -35,5 +35,4 @@ public class PageServiceImplementation implements PageService {
 
     @Override
     public List<Page> findByUser(User user) { return pageRepository.findByUser(user); }
-
 }
