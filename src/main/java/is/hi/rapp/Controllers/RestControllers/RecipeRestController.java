@@ -3,6 +3,7 @@ package is.hi.rapp.Controllers.RestControllers;
 import is.hi.rapp.Persistence.Entities.Page;
 import is.hi.rapp.Persistence.Entities.Recipe;
 import is.hi.rapp.Persistence.Entities.User;
+import is.hi.rapp.Services.PageService;
 import is.hi.rapp.Services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +13,12 @@ import java.util.List;
 @RestController
 public class RecipeRestController {
     private final RecipeService recipeService;
+    private final PageService pageService;
 
     @Autowired
-    public RecipeRestController(RecipeService recipeService) {
+    public RecipeRestController(RecipeService recipeService, PageService pageService) {
         this.recipeService = recipeService;
+        this.pageService = pageService;
     }
 
     //GET routes
@@ -37,6 +40,7 @@ public class RecipeRestController {
     @RequestMapping(value = "/REST/Recipe/{id}", method = RequestMethod.GET)
     public Recipe getRecipe(@PathVariable long id) {
         Recipe recipe = recipeService.findByID(id);
+        List<String> test = recipe.getIngredients();
         return recipe;
     }
 
@@ -50,6 +54,9 @@ public class RecipeRestController {
     //POST routes
     @RequestMapping(value="/REST/createRecipe", method = RequestMethod.POST)
     public Recipe newRecipe(@RequestBody Recipe recipe) {
+        recipe.getIngredients();
+        Page page = pageService.findByID(1);
+        recipe.setPage(page);
         return recipeService.save(recipe);
     }
 

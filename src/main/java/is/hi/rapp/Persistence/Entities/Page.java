@@ -1,7 +1,10 @@
 package is.hi.rapp.Persistence.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
+
 
 @Entity
 public class Page {
@@ -12,6 +15,7 @@ public class Page {
     private String title;
     private String description;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
