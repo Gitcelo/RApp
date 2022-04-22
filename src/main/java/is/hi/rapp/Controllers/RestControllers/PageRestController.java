@@ -65,4 +65,13 @@ public class PageRestController {
     public Page changePage(@PathVariable long id, @RequestBody Page page) {
         return pageService.save(page);
     }
+
+    @RequestMapping(value="/REST/userPages/{username}", method = RequestMethod.GET)
+    public List<Page> getPagesByUsername(@PathVariable String username) {
+        User user = userService.findByUserName(username);
+        return pageService.findByUser(user);
+    }
+
+    @RequestMapping(value="/REST/pages/{id}", method = RequestMethod.GET)
+    public Page getPageByUserId(@PathVariable long id) { return pageService.findByID(id); }
 }

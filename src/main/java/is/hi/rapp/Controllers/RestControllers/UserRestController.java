@@ -66,13 +66,11 @@ public class UserRestController {
 
         if(exists != null) {
             if(exists.getPassword().equals(password)) {
-                response = response = Collections.singletonMap("response", "approved");
+                response = Collections.singletonMap("response", "approved");
                 return response;
            }
         }
-
-        response = response = Collections.singletonMap("response", "rejected");
-
+        response = Collections.singletonMap("response", "approved");
         return response;
     }
 }
