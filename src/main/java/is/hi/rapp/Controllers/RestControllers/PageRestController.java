@@ -58,9 +58,8 @@ public class PageRestController {
     }
 
     @RequestMapping(value="/REST/userPages/{username}", method = RequestMethod.GET)
-    public String getPagesByUsername(@PathVariable String username) {
+    public List<Page> getPagesByUsername(@PathVariable String username) {
         User user = userService.findByUserName(username);
-        return user.getUserName();
-        //return pageService.findByUser(user);
+        return pageService.findByUser(user);
     }
 }
