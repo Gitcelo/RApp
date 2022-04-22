@@ -62,4 +62,7 @@ public class PageRestController {
         User user = userService.findByUserName(username);
         return pageService.findByUser(user);
     }
+
+    @RequestMapping(value="/REST/pages/{id}", method = RequestMethod.GET)
+    public Page getPageByUserId(@PathVariable long id) { return pageService.findByID(id); }
 }
