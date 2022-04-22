@@ -58,9 +58,10 @@ public class PageRestController {
     }
 
     @RequestMapping(value="/REST/userPages", method = RequestMethod.GET)
-    public List<Page> getPagesByUsername(@RequestBody String input) throws JsonProcessingException {
+    public String getPagesByUsername(@RequestBody String input) throws JsonProcessingException {
         JsonNode parsedInput = mapper.readTree(input);
         User user = userService.findByUserName(parsedInput.path("username").asText());
-        return pageService.findByUser(user);
+        return user.getUserName();
+        //return pageService.findByUser(user);
     }
 }
