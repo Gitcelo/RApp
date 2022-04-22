@@ -41,7 +41,7 @@ public class UserChangeController {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         User userToDelete = userService.findByID(id);
 
-        if(sessionUser.isAdmin()) {
+        if(sessionUser.getAdmin()) {
             userService.delete(userToDelete);
             return "redirect:/";
         }

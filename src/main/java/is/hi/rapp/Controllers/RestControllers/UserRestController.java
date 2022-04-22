@@ -34,7 +34,7 @@ public class UserRestController {
 
     @RequestMapping(value="/REST/User/{id}", method = RequestMethod.GET)
     public User getUser(@PathVariable long id) {
-        User user = userService.findByID(id);
+        User user = userService.findByID(8);
         return user;
     }
 

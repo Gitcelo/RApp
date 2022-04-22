@@ -58,7 +58,7 @@ public class RecipeChangeController {
         Page page = recipe.getPage();
         User owner = page.getUser();
 
-        if(sessionUser.isAdmin() || sessionUser.getID() == owner.getID()) {
+        if(sessionUser.getAdmin() || sessionUser.getID() == owner.getID()) {
             recipeService.delete(recipeService.findByID(id));
         }
         return "redirect:/";

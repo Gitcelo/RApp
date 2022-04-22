@@ -1,4 +1,5 @@
 package is.hi.rapp.Persistence.Entities;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -22,8 +23,8 @@ public class Recipe {
 
    /* @ManyToOne(fetch = FetchType.LAZY)
     private User user;*/
-
-   @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
     private Page page;
 
     public Recipe() {

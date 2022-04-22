@@ -12,4 +12,6 @@ public interface PageService {
     Page findByID(long id);
     List<Page> findByTitle(String title);
     List<Page> findByUser(User user);
+    List<Page> findFourPages(long limit);
+    long findUserId(long pageid);
 }

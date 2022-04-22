@@ -17,7 +17,7 @@ import java.util.List;
 public class PageRestController {
     private final PageService pageService;
     private final UserService userService;
-    ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
     public PageRestController(PageService pageService, UserService userService) {
@@ -25,9 +25,9 @@ public class PageRestController {
         this.userService = userService;
     }
 
-    @RequestMapping(value="/REST/pages", method = RequestMethod.GET)
-    public List<Page> getPages() {
-        List<Page> pages = pageService.findAll();
+    @RequestMapping(value="/REST/pages/{limit}", method = RequestMethod.GET)
+    public List<Page> getPages(@PathVariable long limit) {
+        List<Page> pages = pageService.findFourPages(limit);
         return pages;
     }
 
@@ -35,6 +35,14 @@ public class PageRestController {
     public Page getPage(@PathVariable long id) {
         Page page = pageService.findByID(id);
         return page;
+    }
+
+    @RequestMapping(value="/REST/page/{id}/owner", method = RequestMethod.GET)
+    public User getOwner(@PathVariable long id) {
+        long userid = pageService.findUserId(id);
+        User user = userService.findByID(userid);
+
+        return user;
     }
 
     @RequestMapping(value="/REST/createPage", method = RequestMethod.POST)
@@ -51,6 +59,7 @@ public class PageRestController {
 
         return page;
     }
+
 
     @RequestMapping(value="/REST/page/{id}", method = RequestMethod.POST)
     public Page changePage(@PathVariable long id, @RequestBody Page page) {

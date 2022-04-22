@@ -37,7 +37,7 @@ public class User {
 
     public User() {}
 
-    public User(String userName, String email, String password, List<Recipe> recipes) {
+    public User(String userName, String email, String password) {
         this.userName = userName;
         this.email = email;
         this.password = password;
@@ -72,7 +72,7 @@ public class User {
 
     //public List<Following> getFollowings() { return followings; }
 
-    public boolean isAdmin() { return admin; }
+    public boolean getAdmin() { return admin; }
 
     public void setID(long ID) {
         this.ID = ID;

@@ -36,4 +36,10 @@ public class PageServiceImplementation implements PageService {
     @Override
     public List<Page> findByUser(User user) { return pageRepository.findByUser(user); }
 
+    @Override
+    public List<Page> findFourPages(long limit) { return pageRepository.findFourPages(limit); }
+
+    @Override
+    public long findUserId(long pageid) { return pageRepository.findUserId(pageid); }
+
 }
